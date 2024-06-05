@@ -1,0 +1,49 @@
+
+body {
+    background-color: #FFFAD1 ;
+}
+
+.header-image {
+  display: flex;
+  justify-content: center;
+  }
+  
+  .header-image img {
+    max-width: 50%;
+    max-height: 50%;
+    margin-top: 30px;
+  }
+
+  .top-corner-images {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .top-left-image {
+    position: absolute;
+    
+  }
+  
+  .top-right-image {
+    position: absolute;
+    right: 0px;
+  }
+  
+  @media (max-width: 768px) {
+
+    .header-image {
+        display: none;
+    }
+
+    .top-left-image {
+        width: 200px;
+        height: auto;
+    }
+
+    .top-right-image {
+        width: 200px;
+        height: auto;
+    }
+  }

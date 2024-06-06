@@ -1,215 +1,134 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./menuTabs.css";
 
 const MenuTabs = () => {
-    const [activeTab, setActiveTab] = useState("appetizers");
+  const [activeTab, setActiveTab] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-    const handleTabClick = (tab) => {
-        if (activeTab === tab) {
-            setActiveTab(""); 
-        } else {
-            setActiveTab(tab);
-        }
+  const menuData = {
+    appetizers: [
+      {
+        name: "Island Wings",
+        price: "$9.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "Appetizer 2",
+        price: "$8.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
+    salads: [
+      {
+        name: "Salad 1",
+        price: "$7.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "Salad 2",
+        price: "$6.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
+    sandwiches: [
+      {
+        name: "Sandwich 1",
+        price: "$7.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "Sandwich 2",
+        price: "$6.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
+  };
+
+  useEffect(() => {
+    const checkScreenWidth = () => {
+      setIsMobile(window.innerWidth < 768); 
     };
 
-    return (
-        <div className="menu-tabs-container">
-            <div
-                className={`tab ${activeTab === "appetizers" ? "active" : ""}`}
-                onClick={() => handleTabClick("appetizers")}
-            >
-                Appetizers
-            </div>
-            <div
-                className={`tab ${activeTab === "salads" ? "active" : ""}`}
-                onClick={() => handleTabClick("salads")}
-            >
-                Salads
-            </div>
-            <div
-                className={`tab ${activeTab === "sandwiches" ? "active" : ""}`}
-                onClick={() => handleTabClick("sandwiches")}
-            >
-                Sandwiches
-            </div>
-            <div
-                className={`tab ${activeTab === "sides" ? "active" : ""}`}
-                onClick={() => handleTabClick("sides")}
-            >
-                Sides
-            </div>
-            <div
-                className={`tab ${activeTab === "kids" ? "active" : ""}`}
-                onClick={() => handleTabClick("kids")}
-            >
-                Kids Meals
-            </div>
-            <div
-                className={`tab ${activeTab === "dinners" ? "active" : ""}`}
-                onClick={() => handleTabClick("dinners")}
-            >
-                Caribbean Dinners
-            </div>
-            <div
-                className={`tab ${activeTab === "seafood" ? "active" : ""}`}
-                onClick={() => handleTabClick("seafood")}
-            >
-                Seafood
-            </div>
+    checkScreenWidth();
 
-            <div className="content">
-                {activeTab === "appetizers" && (
-                    <div className="app-menu-content active">
-                        <div className="menu-item">
-                            <h3 className="item-name">Island Wings</h3>
-                            <span className="item-price">$9.99</span>
-                            <p className="item-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Fusce eu justo mauris.
-                            </p>
-                        </div>
-                        <div className="menu-item">
-                            <h3 className="item-name">Appetizer 2</h3>
-                            <span className="item-price">$8.99</span>
-                            <p className="item-description">
-                                Sed non magna sit amet eros posuere tincidunt. Nunc
-                                lacinia nisi nec arcu gravida.
-                            </p>
-                        </div>
-                    </div>
-                )}
+    window.addEventListener("resize", checkScreenWidth);
 
-                {activeTab === "salads" && (
-                    <div className="salads-menu-content active">
-                        <div className="menu-item">
-                            <h3 className="item-name">Salad 1</h3>
-                            <span className="item-price">$7.99</span>
-                            <p className="item-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Fusce eu justo mauris.
-                            </p>
-                        </div>
-                        <div className="menu-item">
-                            <h3 className="item-name">Salad 2</h3>
-                            <span className="item-price">$6.99</span>
-                            <p className="item-description">
-                                Sed non magna sit amet eros posuere tincidunt. Nunc
-                                lacinia nisi nec arcu gravida.
-                            </p>
-                        </div>
-                    </div>
-                )}
+    return () => {
+      window.removeEventListener("resize", checkScreenWidth);
+    };
+  }, []);
 
-                {activeTab === "sandwiches" && (
-                    <div className="sand-menu-content active">
-                        <div className="menu-item">
-                            <h3 className="item-name">Sandwich 1</h3>
-                            <span className="item-price">$9.99</span>
-                            <p className="item-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Fusce eu justo mauris.
-                            </p>
-                        </div>
-                        <div className="menu-item">
-                            <h3 className="item-name">Sandwich 2</h3>
-                            <span className="item-price">$8.99</span>
-                            <p className="item-description">
-                                Sed non magna sit amet eros posuere tincidunt. Nunc
-                                lacinia nisi nec arcu gravida.
-                            </p>
-                        </div>
-                    </div>
-                )}
+  const handleTabClick = (tab) => {
+    setActiveTab(activeTab === tab ? null : tab);
+  };
 
-                {activeTab === "sides" && (
-                    <div className="sides-menu-content active">
-                        <div className="menu-item">
-                            <h3 className="item-name">Side 1</h3>
-                            <span className="item-price">$3.99</span>
-                            <p className="item-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Fusce eu justo mauris.
-                            </p>
-                        </div>
-                        <div className="menu-item">
-                            <h3 className="item-name">Side 2</h3>
-                            <span className="item-price">$2.99</span>
-                            <p className="item-description">
-                                Sed non magna sit amet eros posuere tincidunt. Nunc
-                                lacinia nisi nec arcu gravida.
-                            </p>
-                        </div>
-                    </div>
-                )}
+  return (
+    <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
+      {isMobile ? (
 
-                {activeTab === "kids" && (
-                    <div className="kids-menu-content active">
-                        <div className="menu-item">
-                            <h3 className="item-name">Kids Meal 1</h3>
-                            <span className="item-price">$5.99</span>
-                            <p className="item-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Fusce eu justo mauris.
-                            </p>
-                        </div>
-                        <div className="menu-item">
-                            <h3 className="item-name">Kids Meal 2</h3>
-                            <span className="item-price">$4.99</span>
-                            <p className="item-description">
-                                Sed non magna sit amet eros posuere tincidunt. Nunc
-                                lacinia nisi nec arcu gravida.
-                            </p>
-                        </div>
-                    </div>
-                )}
+        <div className="mobile-tabs-wrapper">
 
-                {activeTab === "dinners" && (
-                    <div className="dinners-menu-content active">
-                        <div className="menu-item">
-                            <h3 className="item-name">Dinner 1</h3>
-                            <span className="item-price">$12.99</span>
-                            <p className="item-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Fusce eu justo mauris.
-                            </p>
-                        </div>
-                        <div className="menu-item">
-                            <h3 className="item-name">Dinner 2</h3>
-                            <span className="item-price">$11.99</span>
-                            <p className="item-description">
-                                Sed non magna sit amet eros posuere tincidunt. Nunc
-                                lacinia nisi nec arcu gravida.
-                            </p>
-                        </div>
-                    </div>
-                )}
+          <input type="checkbox" id="toggle-menu" className="sr-only" />
+          <label htmlFor="toggle-menu" className="toggle-menu-label">
+            <span className="material-icons"></span>
+          </label>
+          <div className="collapsible-menu">
 
-                {activeTab === "seafood" && (
-                    <div className="seafood-menu-content active">
-                        <div className="menu-item">
-                            <h3 className="item-name">Seafood Platter 1</h3>
-                            <span className="item-price">$14.99</span>
-                            <p className="item-description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
-                                elit. Fusce eu justo mauris.
-                            </p>
-                        </div>
-                        <div className="menu-item">
-                            <h3 className="item-name">Seafood Platter 2</h3>
-                            <span className="item-price">$13.99</span>
-                            <p className="item-description">
-                                Sed non magna sit amet eros posuere tincidunt. Nunc
-                                lacinia nisi nec arcu gravida.
-                            </p>
-                        </div>
-                    </div>
-                )}
-            </div>
+            {Object.keys(menuData).map((category) => (
+              <div
+                key={category}
+                className={`tab ${activeTab === category ? "active" : ""}`}
+                onClick={() => handleTabClick(category)}
+              >
+                {category}
+              </div>
+            ))}
+          </div>
         </div>
-    );
+      ) : (
+
+        <div className="desktop-tabs-wrapper">
+
+          {Object.keys(menuData).map((category) => (
+            <div
+              key={category}
+              className={`tab ${activeTab === category ? "active" : ""}`}
+              onClick={() => handleTabClick(category)}
+            >
+              {category}
+            </div>
+          ))}
+        </div>
+      )}
+
+
+      {activeTab && (
+        <div className="menu-content">
+          {menuData[activeTab].map((item, index) => (
+            <div key={index} className="menu-item">
+              <h3 className="item-name">{item.name}</h3>
+              <span className="item-price">{item.price}</span>
+              <p className="item-description">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default MenuTabs;
+
+
+
+
+
+
+
+
+
+
+
 
 
 

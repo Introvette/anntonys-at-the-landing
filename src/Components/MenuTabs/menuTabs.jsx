@@ -5,7 +5,7 @@ const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
   const [startY, setStartY] = useState(null);
-  const [touchTimer, setTouchTimer] = useState(null);
+  const [isScrolling, setIsScrolling] = useState(false);
   const menuRef = useRef(null);
 
   const menuData = {
@@ -342,35 +342,27 @@ const MenuTabs = () => {
 
   const handleTouchStart = (e) => {
     setStartY(e.touches[0].clientY);
-    setTouchTimer(setTimeout(() => setStartY(null), 300)); // Set a delay to distinguish tap from scroll
+    setIsScrolling(false);
   };
 
   const handleTouchMove = (e) => {
     const currentY = e.touches[0].clientY;
     const diffY = Math.abs(currentY - startY);
-    
     if (diffY > 10) {
-      clearTimeout(touchTimer); // Clear timer if movement exceeds threshold
+      setIsScrolling(true);
     }
   };
 
   const handleTouchEnd = (tab) => {
-    if (startY !== null) {
+    if (!isScrolling) {
       handleTabClick(tab);
     }
-    clearTimeout(touchTimer);
-    setStartY(null);
   };
 
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (
-        <div
-          className="mobile-tabs-wrapper"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={(e) => handleTouchEnd(e.target.dataset.tab)}
-        >
+        <div className="mobile-tabs-wrapper">
           <input type="checkbox" id="toggle-menu" className="sr-only" />
           <label htmlFor="toggle-menu" className="toggle-menu-label">
             <span className="material-icons"></span>
@@ -380,7 +372,9 @@ const MenuTabs = () => {
               <div key={category}>
                 <div
                   className={`tab ${activeTab === category ? "active" : ""}`}
-                  data-tab={category}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={() => handleTouchEnd(category)}
                 >
                   {category}
                 </div>

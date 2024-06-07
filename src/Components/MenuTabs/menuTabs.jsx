@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./menuTabs.css";
 
 const MenuTabs = () => {
-  const [activeTab, setActiveTab] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [activeTab, setActiveTab] = useState("appetizers");
+  const [isMobile, setIsMobile] = useState(null);
 
   const menuData = {
     appetizers: [
@@ -42,11 +42,77 @@ const MenuTabs = () => {
         description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
       },
     ],
+    kids: [
+      {
+        name: "kids 1",
+        price: "$7.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "kids 2",
+        price: "$6.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
+    wraps: [
+      {
+        name: "wrap 1",
+        price: "$7.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "wrap 2",
+        price: "$6.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
+    dinners: [
+      {
+        name: "dinner 1",
+        price: "$7.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "dinner 2",
+        price: "$6.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
+    seafood: [
+      {
+        name: "seafood 1",
+        price: "$7.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "seafood 2",
+        price: "$6.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
+    sides: [
+      {
+        name: "side 1",
+        price: "$7.99",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+      },
+      {
+        name: "side 2",
+        price: "$6.99",
+        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+      },
+    ],
   };
 
   useEffect(() => {
     const checkScreenWidth = () => {
-      setIsMobile(window.innerWidth < 768); 
+      const isMobileSize = window.innerWidth < 768;
+      setIsMobile(isMobileSize);
+      if (!isMobileSize) {
+        setActiveTab("appetizers");
+      } else {
+        setActiveTab(null);
+      }
     };
 
     checkScreenWidth();
@@ -65,30 +131,37 @@ const MenuTabs = () => {
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (
-
         <div className="mobile-tabs-wrapper">
-
           <input type="checkbox" id="toggle-menu" className="sr-only" />
           <label htmlFor="toggle-menu" className="toggle-menu-label">
             <span className="material-icons"></span>
           </label>
           <div className="collapsible-menu">
-
             {Object.keys(menuData).map((category) => (
-              <div
-                key={category}
-                className={`tab ${activeTab === category ? "active" : ""}`}
-                onClick={() => handleTabClick(category)}
-              >
-                {category}
+              <div key={category}>
+                <div
+                  className={`tab ${activeTab === category ? "active" : ""}`}
+                  onClick={() => handleTabClick(category)}
+                >
+                  {category}
+                </div>
+                {activeTab === category && (
+                  <div className="menu-content">
+                    {menuData[category].map((item, index) => (
+                      <div key={index} className="menu-item">
+                        <h3 className="item-name">{item.name}</h3>
+                        <span className="item-price">{item.price}</span>
+                        <p className="item-description">{item.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       ) : (
-
         <div className="desktop-tabs-wrapper">
-
           {Object.keys(menuData).map((category) => (
             <div
               key={category}
@@ -101,8 +174,7 @@ const MenuTabs = () => {
         </div>
       )}
 
-
-      {activeTab && (
+      {activeTab && !isMobile && (
         <div className="menu-content">
           {menuData[activeTab].map((item, index) => (
             <div key={index} className="menu-item">
@@ -115,6 +187,8 @@ const MenuTabs = () => {
       )}
     </div>
   );
+  
+  
 };
 
 export default MenuTabs;

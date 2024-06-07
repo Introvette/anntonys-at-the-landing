@@ -17,7 +17,9 @@ const HomePage = () => {
             <div class="header-image">
                 <img src={header} alt="food"/>
             </div>
-                <NavBar/>
+            <div className="nav-bar-home">
+            <NavBar/>
+            </div>
         </div>
     );
 };

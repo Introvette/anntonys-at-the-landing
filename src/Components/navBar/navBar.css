@@ -6,6 +6,7 @@
     justify-content: space-between;
     background-image: linear-gradient(to left, #FFFAD1, #0C9098);
     height: 100px;
+    margin-top: 120px;
   }
   
   .logo {
@@ -21,7 +22,6 @@
     display: flex;
     justify-content: space-evenly;
     flex-grow: 1;
-    
     max-width: 2000px;
   }
   
@@ -78,6 +78,7 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
     display: none;
+    margin-top: -58px;
   }
   
   .mobile-menu {
@@ -120,9 +121,9 @@
     }
   
     .logo {
-      margin-top: 2rem;
       margin-left: auto;
       margin-right: auto;
+      margin-top: -85px;
     }
   
     .nav-menu {
@@ -131,7 +132,7 @@
   
     .mobile-menu-toggle {
       margin-left: auto;
-      margin-right: 60px;
+      margin-right: 45px;
       display: block;
       font-size: 40px;
       color: #0C9098;

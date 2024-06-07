@@ -3,6 +3,10 @@ body {
     background-color: #FFFAD1 ;
 }
 
+.nav-bar-home {
+  margin-top: -100px;
+}
+
 .header-image {
   display: flex;
   justify-content: center;
@@ -16,6 +20,7 @@ body {
 
   .top-corner-images {
     position: fixed;
+    max-width: 2000px;
     top: 0;
     left: 0;
     right: 0;
@@ -37,13 +42,17 @@ body {
         display: none;
     }
 
+    .nav-bar-home {
+      margin-top: 40px;
+    }
+
     .top-left-image {
-        width: 200px;
+        width: 50%;
         height: auto;
     }
 
     .top-right-image {
-        width: 200px;
+        width: 50%;
         height: auto;
     }
   }

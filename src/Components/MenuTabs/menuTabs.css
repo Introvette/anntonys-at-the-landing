@@ -1,24 +1,10 @@
-
-.menu-tabs-container {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.tabs-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-
 .tab {
   cursor: pointer;
   padding: 10px 20px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  border-bottom: none;
+  text-align: center;
 }
-
 
 .tab.active {
   background-color: #fff;
@@ -30,7 +16,6 @@
   margin-top: 10px;
 }
 
-
 .menu-item {
   margin-bottom: 20px;
 }
@@ -40,31 +25,41 @@
   margin-bottom: 5px;
 }
 
-
 .item-price {
   color: #666;
 }
-
 
 .item-description {
   color: #999;
 }
 
-
-.tab {
-  flex: 1; 
+@media (min-width: 768px) {
+  .desktop-tabs-wrapper {
+    display: flex;
+  }
+  
+  .mobile-tabs-wrapper {
+    display: none;
+  }
 }
 
-
-@media (min-width: 768px) {
-  .menu-tabs-container {
-    display: block; 
+@media (max-width: 767px) {
+  .desktop-tabs-wrapper {
+    display: none;
   }
 
   .mobile-tabs-wrapper {
-    display: none; 
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
+  }
+
+ .mobile-tabs-wrapper .tab {
+    width: 100%; 
+    margin-bottom: 10px;
   }
 }
+
 
 
   

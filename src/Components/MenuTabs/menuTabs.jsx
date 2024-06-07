@@ -5,7 +5,7 @@ const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
   const [startY, setStartY] = useState(null);
-  const [isScrolling, setIsScrolling] = useState(false);
+  const [touchTimer, setTouchTimer] = useState(null);
   const menuRef = useRef(null);
 
   const menuData = {
@@ -342,22 +342,24 @@ const MenuTabs = () => {
 
   const handleTouchStart = (e) => {
     setStartY(e.touches[0].clientY);
-    setIsScrolling(false);
+    setTouchTimer(setTimeout(() => setStartY(null), 300)); // Set a delay to distinguish tap from scroll
   };
 
   const handleTouchMove = (e) => {
     const currentY = e.touches[0].clientY;
     const diffY = Math.abs(currentY - startY);
-
-    if (diffY > 10) { // If vertical movement is greater than 10px, consider it a scroll
-      setIsScrolling(true);
+    
+    if (diffY > 10) {
+      clearTimeout(touchTimer); // Clear timer if movement exceeds threshold
     }
   };
 
   const handleTouchEnd = (tab) => {
-    if (!isScrolling) {
+    if (startY !== null) {
       handleTabClick(tab);
     }
+    clearTimeout(touchTimer);
+    setStartY(null);
   };
 
   return (
@@ -367,6 +369,7 @@ const MenuTabs = () => {
           className="mobile-tabs-wrapper"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
+          onTouchEnd={(e) => handleTouchEnd(e.target.dataset.tab)}
         >
           <input type="checkbox" id="toggle-menu" className="sr-only" />
           <label htmlFor="toggle-menu" className="toggle-menu-label">
@@ -377,7 +380,7 @@ const MenuTabs = () => {
               <div key={category}>
                 <div
                   className={`tab ${activeTab === category ? "active" : ""}`}
-                  onTouchEnd={() => handleTouchEnd(category)}
+                  data-tab={category}
                 >
                   {category}
                 </div>

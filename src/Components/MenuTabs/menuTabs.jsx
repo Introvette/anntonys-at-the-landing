@@ -329,25 +329,30 @@ const MenuTabs = () => {
     setActiveTab(activeTab === tab ? null : tab);
   };
 
+  const handleTouchStart = (e) => {
+    e.preventDefault(); // Prevents the default touch start behavior
+  };
+
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (
         <div className="mobile-tabs-wrapper">
           <input type="checkbox" id="toggle-menu" className="sr-only" />
-          <label htmlFor="toggle-menu" className="toggle-menu-label">
+          <label htmlFor="toggle-menu" className="toggle-menu-label" onTouchStart={handleTouchStart}>
             <span className="material-icons"></span>
           </label>
-          <div className="collapsible-menu">
+          <div className="collapsible-menu" onTouchStart={handleTouchStart}>
             {Object.keys(menuData).map((category) => (
               <div key={category}>
                 <div
                   className={`tab ${activeTab === category ? "active" : ""}`}
                   onClick={() => handleTabClick(category)}
+                  onTouchStart={handleTouchStart}
                 >
                   {category}
                 </div>
                 {activeTab === category && (
-                  <div className="menu-content">
+                  <div className="menu-content" onTouchStart={handleTouchStart}>
                     {menuData[category].map((item, index) => (
                       <div key={index} className="menu-item">
                         <h3 className="item-name">{item.name}</h3>
@@ -388,22 +393,6 @@ const MenuTabs = () => {
       )}
     </div>
   );
-  
-  
 };
 
 export default MenuTabs;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

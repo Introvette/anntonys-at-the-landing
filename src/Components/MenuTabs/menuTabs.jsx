@@ -330,11 +330,13 @@ const MenuTabs = () => {
 
   const handleTabClick = (tab) => {
     setActiveTab(activeTab === tab ? null : tab);
-    if (menuRef.current) {
-      const tabContent = menuRef.current.querySelector(`.${tab}`);
-      if (tabContent) {
-        tabContent.scrollIntoView({ behavior: "smooth" });
-      }
+    if (isMobile && menuRef.current) {
+      setTimeout(() => {
+        const tabContent = document.querySelector(`#${tab}`);
+        if (tabContent) {
+          tabContent.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 0);
     }
   };
 
@@ -344,7 +346,7 @@ const MenuTabs = () => {
 
   const handleMenuTouchMove = (e) => {
     const movedX = Math.abs(e.touches[0].clientX - startX);
-    if (movedX > 10) { // Adjust the threshold as needed
+    if (movedX > 10) { 
       setIsMenuTouched(true);
     }
   };
@@ -356,13 +358,7 @@ const MenuTabs = () => {
 
   const handleTabClickWithTouch = (tab) => {
     if (!isMenuTouched) {
-      setActiveTab(activeTab === tab ? null : tab);
-      if (menuRef.current) {
-        const tabContent = menuRef.current.querySelector(`.${tab}`);
-        if (tabContent) {
-          tabContent.scrollIntoView({ behavior: "smooth" });
-        }
-      }
+      handleTabClick(tab);
     }
   };
 
@@ -379,7 +375,7 @@ const MenuTabs = () => {
           <label htmlFor="toggle-menu" className="toggle-menu-label">
             <span className="material-icons"></span>
           </label>
-          <div className="collapsible-menu">
+          <div className="collapsible-menu" ref={menuRef}>
             {Object.keys(menuData).map((category) => (
               <div key={category}>
                 <div
@@ -389,7 +385,7 @@ const MenuTabs = () => {
                   {category}
                 </div>
                 {activeTab === category && (
-                  <div className="menu-content" ref={menuRef}>
+                  <div className="menu-content" id={category}>
                     {menuData[category].map((item, index) => (
                       <div key={index} className={`menu-item ${category}`}>
                         <h3 className="item-name">{item.name}</h3>
@@ -418,7 +414,7 @@ const MenuTabs = () => {
       )}
 
       {activeTab && !isMobile && (
-        <div className="menu-content">
+        <div className="menu-content" id={activeTab}>
           {menuData[activeTab].map((item, index) => (
             <div key={index} className={`menu-item ${activeTab}`}>
               <h3 className="item-name">{item.name}</h3>

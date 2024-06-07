@@ -330,13 +330,13 @@ const MenuTabs = () => {
   };
 
   const handleTouchStart = (e) => {
-    e.preventDefault(); 
-  };
+    const touchX = e.touches[0].clientX;
+    const touchY = e.touches[0].clientY;
 
-  const handleTouchMove = (e) => {
-    e.stopPropagation(); 
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setActiveTab(null);
+    }
   };
-
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (

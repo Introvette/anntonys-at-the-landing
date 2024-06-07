@@ -330,6 +330,12 @@ const MenuTabs = () => {
 
   const handleTabClick = (tab) => {
     setActiveTab(activeTab === tab ? null : tab);
+    if (menuRef.current) {
+      const tabContent = menuRef.current.querySelector(`.${tab}`);
+      if (tabContent) {
+        tabContent.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   const handleMenuTouchStart = (e) => {
@@ -338,7 +344,7 @@ const MenuTabs = () => {
 
   const handleMenuTouchMove = (e) => {
     const movedX = Math.abs(e.touches[0].clientX - startX);
-    if (movedX > 10) { 
+    if (movedX > 10) { // Adjust the threshold as needed
       setIsMenuTouched(true);
     }
   };
@@ -351,6 +357,12 @@ const MenuTabs = () => {
   const handleTabClickWithTouch = (tab) => {
     if (!isMenuTouched) {
       setActiveTab(activeTab === tab ? null : tab);
+      if (menuRef.current) {
+        const tabContent = menuRef.current.querySelector(`.${tab}`);
+        if (tabContent) {
+          tabContent.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
   };
 
@@ -379,7 +391,7 @@ const MenuTabs = () => {
                 {activeTab === category && (
                   <div className="menu-content" ref={menuRef}>
                     {menuData[category].map((item, index) => (
-                      <div key={index} className="menu-item">
+                      <div key={index} className={`menu-item ${category}`}>
                         <h3 className="item-name">{item.name}</h3>
                         <span className="item-price">{item.price}</span>
                         <p className="item-description">{item.description}</p>
@@ -408,7 +420,7 @@ const MenuTabs = () => {
       {activeTab && !isMobile && (
         <div className="menu-content">
           {menuData[activeTab].map((item, index) => (
-            <div key={index} className="menu-item">
+            <div key={index} className={`menu-item ${activeTab}`}>
               <h3 className="item-name">{item.name}</h3>
               <span className="item-price">{item.price}</span>
               <p className="item-description">{item.description}</p>

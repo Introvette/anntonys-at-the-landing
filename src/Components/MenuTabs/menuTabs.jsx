@@ -4,8 +4,8 @@ import "./menuTabs.css";
 const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
-  const [startY, setStartY] = useState(null);
-  const [isScrolling, setIsScrolling] = useState(false);
+  const startYRef = useRef(null);
+  const isScrollingRef = useRef(false);
   const menuRef = useRef(null);
 
   const menuData = {
@@ -341,20 +341,20 @@ const MenuTabs = () => {
   };
 
   const handleTouchStart = (e) => {
-    setStartY(e.touches[0].clientY);
-    setIsScrolling(false);
+    startYRef.current = e.touches[0].clientY;
+    isScrollingRef.current = false;
   };
 
   const handleTouchMove = (e) => {
     const currentY = e.touches[0].clientY;
-    const diffY = Math.abs(currentY - startY);
+    const diffY = Math.abs(currentY - startYRef.current);
     if (diffY > 10) {
-      setIsScrolling(true);
+      isScrollingRef.current = true;
     }
   };
 
   const handleTouchEnd = (tab) => {
-    if (!isScrolling) {
+    if (!isScrollingRef.current) {
       handleTabClick(tab);
     }
   };

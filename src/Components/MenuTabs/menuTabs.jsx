@@ -353,10 +353,22 @@ const MenuTabs = () => {
     }
   };
 
-  const handleTouchEnd = (tab) => {
+  const handleTouchEnd = (e, tab) => {
     if (!isScrollingRef.current) {
       handleTabClick(tab);
     }
+  };
+
+  const handleContentTouchStart = (e) => {
+    e.stopPropagation();
+  };
+
+  const handleContentTouchMove = (e) => {
+    e.stopPropagation();
+  };
+
+  const handleContentTouchEnd = (e) => {
+    e.stopPropagation();
   };
 
   return (
@@ -374,12 +386,18 @@ const MenuTabs = () => {
                   className={`tab ${activeTab === category ? "active" : ""}`}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
-                  onTouchEnd={() => handleTouchEnd(category)}
+                  onTouchEnd={(e) => handleTouchEnd(e, category)}
                 >
                   {category}
                 </div>
                 {activeTab === category && (
-                  <div className="menu-content" id={category}>
+                  <div
+                    className="menu-content"
+                    id={category}
+                    onTouchStart={handleContentTouchStart}
+                    onTouchMove={handleContentTouchMove}
+                    onTouchEnd={handleContentTouchEnd}
+                  >
                     {menuData[category].map((item, index) => (
                       <div key={index} className={`menu-item ${category}`}>
                         <h3 className="item-name">{item.name}</h3>

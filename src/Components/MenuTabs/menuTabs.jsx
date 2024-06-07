@@ -4,8 +4,8 @@ import "./menuTabs.css";
 const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
-  const [startX, setStartX] = useState(null);
-  const [isMenuTouched, setIsMenuTouched] = useState(false);
+  const [startY, setStartY] = useState(null);
+  const [isScrolling, setIsScrolling] = useState(false);
   const menuRef = useRef(null);
 
   const menuData = {
@@ -340,24 +340,22 @@ const MenuTabs = () => {
     }
   };
 
-  const handleMenuTouchStart = (e) => {
-    setStartX(e.touches[0].clientX);
+  const handleTouchStart = (e) => {
+    setStartY(e.touches[0].clientY);
+    setIsScrolling(false);
   };
 
-  const handleMenuTouchMove = (e) => {
-    const movedX = Math.abs(e.touches[0].clientX - startX);
-    if (movedX > 10) { 
-      setIsMenuTouched(true);
+  const handleTouchMove = (e) => {
+    const currentY = e.touches[0].clientY;
+    const diffY = Math.abs(currentY - startY);
+
+    if (diffY > 10) { // If vertical movement is greater than 10px, consider it a scroll
+      setIsScrolling(true);
     }
   };
 
-  const handleMenuTouchEnd = () => {
-    setIsMenuTouched(false);
-    setStartX(null);
-  };
-
-  const handleTabClickWithTouch = (tab) => {
-    if (!isMenuTouched) {
+  const handleTouchEnd = (tab) => {
+    if (!isScrolling) {
       handleTabClick(tab);
     }
   };
@@ -367,9 +365,8 @@ const MenuTabs = () => {
       {isMobile ? (
         <div
           className="mobile-tabs-wrapper"
-          onTouchStart={handleMenuTouchStart}
-          onTouchMove={handleMenuTouchMove}
-          onTouchEnd={handleMenuTouchEnd}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
         >
           <input type="checkbox" id="toggle-menu" className="sr-only" />
           <label htmlFor="toggle-menu" className="toggle-menu-label">
@@ -380,7 +377,7 @@ const MenuTabs = () => {
               <div key={category}>
                 <div
                   className={`tab ${activeTab === category ? "active" : ""}`}
-                  onClick={() => handleTabClickWithTouch(category)}
+                  onTouchEnd={() => handleTouchEnd(category)}
                 >
                   {category}
                 </div>

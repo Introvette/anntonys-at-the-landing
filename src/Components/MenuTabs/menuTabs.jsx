@@ -330,13 +330,17 @@ const MenuTabs = () => {
   };
 
   const handleTouchStart = (e) => {
-    e.preventDefault(); // Prevents the default touch start behavior
+    e.preventDefault(); 
+  };
+
+  const handleTouchMove = (e) => {
+    e.stopPropagation(); 
   };
 
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (
-        <div className="mobile-tabs-wrapper">
+        <div className="mobile-tabs-wrapper" onTouchMove={handleTouchMove}>
           <input type="checkbox" id="toggle-menu" className="sr-only" />
           <label htmlFor="toggle-menu" className="toggle-menu-label" onTouchStart={handleTouchStart}>
             <span className="material-icons"></span>

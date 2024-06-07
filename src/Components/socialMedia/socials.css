@@ -27,12 +27,12 @@
   }
 
   .socials-container img {
-    margin-right: 5px;
+    margin-right: -2px;
   }
 
   .socials-container {
-    margin-right: 300px;
-
+    margin-right: 215px;
+    
   }
 }
 

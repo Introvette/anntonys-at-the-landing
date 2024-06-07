@@ -8,98 +8,299 @@ const MenuTabs = () => {
   const menuData = {
     appetizers: [
       {
-        name: "Island Wings",
-        price: "$9.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "Jamaican Patties (1)",
+        price: "$3.25",
+        description: "A savory hand pie with your filling choice of beef, chicken, or veggies.",
       },
       {
-        name: "Appetizer 2",
-        price: "$8.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "Chicken Salad Plate",
+        price: "$7.50",
+        description: "Shredded rotisserie chicken, carrots, and green onions. Served with crackers.",
+      },
+      {
+        name: "Island Wings",
+        price: "6 Count - $8.50 | 12 Count - 12.95",
+        description: "Island | Mild Jerk | Spicy Jerk | BBQ (All flats or drums +$1)",
+      },
+      {
+        name: "Southern Style Salmon Cake (1)",
+        price: "$9.50",
+        description: "Southern fried salmon cake made with salmon, sweet peppers, and green onions.",
+      },
+      {
+        name: "Calypso Crab Cake (1)",
+        price: "$12.99",
+        description: "Southern fried crab cake made with real crab meat, sweet peppers, and green onions.",
+      },
+      {
+        name: "Tropical Shrimp (8)",
+        price: "$15.00",
+        description: "Fried or grilled shrimp served with our Caribbean Aioli.",
+      },
+      {
+        name: "Succulent Ribs (4)",
+        price: "$11.95",
+        description: "Island | Mild Jerk | Spicy Jerk | BBQ",
       },
     ],
     salads: [
       {
-        name: "Salad 1",
-        price: "$7.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "House Salad",
+        price: "$7.95",
+        description: "Mixed baby lettuce, sweet peppers, red onion, and tomato. Your choice of Caribbean Aioli or Balsamic Vinaigrette dressing.",
       },
       {
-        name: "Salad 2",
-        price: "$6.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "Add protein",
+        price: "$6.25",
+        description: "Boneless chicken breast, Cuban roast pork, chicken salad, or salmon cake.",
+      },
+      {
+        name: "Calypso Crab Cake Salad",
+        price: "$20.90",
+        description: ""
       },
     ],
     sandwiches: [
       {
-        name: "Sandwich 1",
-        price: "$7.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "Handhelds",
+        price: "$13.95",
+        description: "Protein, lettuce, red onion, tomato, and our homemade Caribbean Aioli on toasted hamburger buns",
       },
       {
-        name: "Sandwich 2",
-        price: "$6.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "Grilled Chicken Sandwich",
+        price: " ",
+        description: " ",
+      },
+      {
+        name: "Roast Pork Sandwich",
+        price: " ",
+        description: " ",
+      },
+      {
+        name: "Bahama Burger",
+        price: " ",
+        description: "Fresh char grilled to perfection beef burger patty with cheese, and a sweet pressed plantain",
+      },
+      {
+        name: "Salmon Cake Sandwich",
+        price: " ",
+        description: " ",
+      },
+      {
+        name: "Chicken Salad Sandwich",
+        price: " ",
+        description: " ",
+      },
+      {
+        name: "Fried Fish Sandwich",
+        price: " ",
+        description: " ",
+      },
+      {
+        name: "Crabcake Sandwich",
+        price: "+$7.50",
+        description: " ",
+      },
+      {
+        name: "Grilled Chicken Sandwich",
+        price: " ",
+        description: " ",
       },
     ],
     kids: [
       {
-        name: "kids 1",
-        price: "$7.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "Kids Meals",
+        price: "$8.99",
+        description: "Served with one side and a drink",
       },
       {
-        name: "kids 2",
-        price: "$6.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "Veggie Plate",
+        price: "",
+        description: "Choice of two sides",
+      },
+      {
+        name: "Wings (4)",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Ribs (3)",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Grilled Cheese",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Chicken Tenders (3)",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Tropical Shrimp (4)",
+        price: "",
+        description: "",
       },
     ],
     wraps: [
       {
-        name: "wrap 1",
-        price: "$7.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "Grilled Chicken Wrap",
+        price: "13.95",
+        description: "Sautéed red onions, sweet peppers and grilled chicken in our Anntony's Island sauce wrapped in a Caribbean style flat bread.",
       },
       {
-        name: "wrap 2",
-        price: "$6.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "Roast Pork Wrap",
+        price: "$13.95",
+        description: "Sautéed red onions, sweet peppers and grilled chicken in our Anntony's Island sauce wrapped in a Caribbean style flat bread.",
       },
     ],
-    dinners: [
+    'rotisserie and grill': [
       {
-        name: "dinner 1",
-        price: "$7.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "Tony's Caribbean Dinners",
+        price: "$16.99",
+        description: "Served with two sides of your choice.",
       },
       {
-        name: "dinner 2",
-        price: "$6.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "1/4 White Chicken",
+        price: "",
+        description: "",
       },
+      {
+        name: "1/4 Dark Chicken",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Pork Chop",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Succulent Ribs",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Duo Sampler Plate",
+        price: "$25.95",
+        description: "Choice of two meats",
+      },
+      {
+        name: "Trio Sampler Plate",
+        price: "$30.95",
+        description: "Choice of three meats",
+      },
+
     ],
     seafood: [
       {
-        name: "seafood 1",
-        price: "$7.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "Seafood Platters",
+        price: "$20.95",
+        description: "Served with two sides of your choice.",
       },
       {
-        name: "seafood 2",
-        price: "$6.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "Apollo's Flounder Basket",
+        price: "",
+        description: "Breaded and deep fried flounder fillets.",
+      },
+      {
+        name: "Aunty Pam's Fish Dinner",
+        price: "",
+        description: "Breaded and deep fried white fish fillets.",
+      },
+      {
+        name: "Southern Style Salmon Cakes",
+        price: "",
+        description: "Southern fried salmon cakes made with salmon, sweet peppers, and green onions.",
+      },
+      {
+        name: "Calypso Crab Cakes",
+        price: "$26.45",
+        description: "Southern fried crab cakes made with real crab meat, sweet peppers, and green onions.",
+      },
+      {
+        name: "Salmon Stuffed Flounder",
+        price: "",
+        description: "Broiled flounder fillets stuffed with shredded salmon, and served with our homemade Caribbean Aoli.",
+      },
+      {
+        name: "Antigua Stuffed Flounder",
+        price: "$26.45",
+        description: "Broiled flounder fillets stuffed with real crab meat, and served with our homemade Caribbean Aoli.",
       },
     ],
     sides: [
       {
-        name: "side 1",
-        price: "$7.99",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu justo mauris.",
+        name: "Individual Sides",
+        price: "$4.25",
+        description: "",
       },
       {
-        name: "side 2",
-        price: "$6.99",
-        description: "Sed non magna sit amet eros posuere tincidunt. Nunc lacinia nisi nec arcu gravida.",
+        name: "Veggie Plate",
+        price: "$11.95",
+        description: "Choice of three side items.",
+      },
+      {
+        name: "Callaloo Greens",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Calypso Rice",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Potato Salad",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Black Beans",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Cabbage",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Rasta Pasta",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Cole Slaw",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Plantains",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Seasoned Fries",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Mac and Cheese",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Rice and Peas",
+        price: "",
+        description: "",
+      },
+      {
+        name: "Veggie of the Day",
+        price: "",
+        description: "",
       },
     ],
   };

@@ -10,12 +10,13 @@
   }
   
   .logo {
-    margin-right: 2rem;
+    margin-right: -50px;
   }
   
   .logo img {
     width: 300px;
     height: auto;
+    margin-left: 3rem;
   }
   
   .nav-menu {
@@ -78,7 +79,7 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
     display: none;
-    margin-top: -58px;
+    margin-top: -62px;
   }
   
   .mobile-menu {

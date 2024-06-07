@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./menuTabs.css";
 
 const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
+  const menuRef = useRef(null);
 
   const menuData = {
     appetizers: [
@@ -330,33 +331,31 @@ const MenuTabs = () => {
   };
 
   const handleTouchStart = (e) => {
-    const touchX = e.touches[0].clientX;
-    const touchY = e.touches[0].clientY;
-
+    // Check if the touch is within the menu area
     if (menuRef.current && !menuRef.current.contains(e.target)) {
       setActiveTab(null);
     }
   };
+
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (
-        <div className="mobile-tabs-wrapper" onTouchMove={handleTouchMove}>
+        <div className="mobile-tabs-wrapper" onTouchStart={handleTouchStart}>
           <input type="checkbox" id="toggle-menu" className="sr-only" />
-          <label htmlFor="toggle-menu" className="toggle-menu-label" onTouchStart={handleTouchStart}>
+          <label htmlFor="toggle-menu" className="toggle-menu-label">
             <span className="material-icons"></span>
           </label>
-          <div className="collapsible-menu" onTouchStart={handleTouchStart}>
+          <div className="collapsible-menu">
             {Object.keys(menuData).map((category) => (
               <div key={category}>
                 <div
                   className={`tab ${activeTab === category ? "active" : ""}`}
                   onClick={() => handleTabClick(category)}
-                  onTouchStart={handleTouchStart}
                 >
                   {category}
                 </div>
                 {activeTab === category && (
-                  <div className="menu-content" onTouchStart={handleTouchStart}>
+                  <div className="menu-content" ref={menuRef}>
                     {menuData[category].map((item, index) => (
                       <div key={index} className="menu-item">
                         <h3 className="item-name">{item.name}</h3>

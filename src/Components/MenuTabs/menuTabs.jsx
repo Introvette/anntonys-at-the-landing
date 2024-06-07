@@ -4,6 +4,8 @@ import "./menuTabs.css";
 const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
+  const [startX, setStartX] = useState(null);
+  const [isMenuTouched, setIsMenuTouched] = useState(false);
   const menuRef = useRef(null);
 
   const menuData = {
@@ -330,17 +332,37 @@ const MenuTabs = () => {
     setActiveTab(activeTab === tab ? null : tab);
   };
 
-  const handleTouchStart = (e) => {
-    // Check if the touch is within the menu area
-    if (menuRef.current && !menuRef.current.contains(e.target)) {
-      setActiveTab(null);
+  const handleMenuTouchStart = (e) => {
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleMenuTouchMove = (e) => {
+    const movedX = Math.abs(e.touches[0].clientX - startX);
+    if (movedX > 10) { 
+      setIsMenuTouched(true);
+    }
+  };
+
+  const handleMenuTouchEnd = () => {
+    setIsMenuTouched(false);
+    setStartX(null);
+  };
+
+  const handleTabClickWithTouch = (tab) => {
+    if (!isMenuTouched) {
+      setActiveTab(activeTab === tab ? null : tab);
     }
   };
 
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (
-        <div className="mobile-tabs-wrapper" onTouchStart={handleTouchStart}>
+        <div
+          className="mobile-tabs-wrapper"
+          onTouchStart={handleMenuTouchStart}
+          onTouchMove={handleMenuTouchMove}
+          onTouchEnd={handleMenuTouchEnd}
+        >
           <input type="checkbox" id="toggle-menu" className="sr-only" />
           <label htmlFor="toggle-menu" className="toggle-menu-label">
             <span className="material-icons"></span>
@@ -350,7 +372,7 @@ const MenuTabs = () => {
               <div key={category}>
                 <div
                   className={`tab ${activeTab === category ? "active" : ""}`}
-                  onClick={() => handleTabClick(category)}
+                  onClick={() => handleTabClickWithTouch(category)}
                 >
                   {category}
                 </div>

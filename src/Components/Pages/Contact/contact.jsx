@@ -32,6 +32,7 @@ const ContactPage = () => {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.339091784518!2d-80.99320042330547!3d35.5700214360736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8856b39f45d297c1%3A0x309768886cb0ecec!2sAnntonys%20at%20the%20Landing!5e0!3m2!1sen!2sus!4v1718641210008!5m2!1sen!2sus"
             width="300"
             height="450"
+            title="restaurant-address"
             style={{ border: 0 }}
             allowFullScreen
             loading="lazy"

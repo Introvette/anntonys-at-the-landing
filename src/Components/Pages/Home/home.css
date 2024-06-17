@@ -19,7 +19,7 @@ body {
   }
 
   .top-corner-images {
-    position: fixed;
+    position: relative;
     max-width: 2000px;
     top: 0;
     left: 0;
@@ -34,6 +34,14 @@ body {
   .top-right-image {
     position: absolute;
     right: 0px;
+  }
+
+  .page-content > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
   }
   
   @media (max-width: 768px) {

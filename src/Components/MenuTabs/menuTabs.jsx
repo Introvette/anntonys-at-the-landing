@@ -344,7 +344,7 @@ const MenuTabs = () => {
     startYRef.current = e.touches[0].clientY;
     isScrollingRef.current = false;
   };
-
+  
   const handleTouchMove = (e) => {
     const currentY = e.touches[0].clientY;
     const diffY = Math.abs(currentY - startYRef.current);
@@ -352,25 +352,26 @@ const MenuTabs = () => {
       isScrollingRef.current = true;
     }
   };
-
+  
   const handleTouchEnd = (e, tab) => {
     if (!isScrollingRef.current) {
       handleTabClick(tab);
     }
   };
+  
 
   const handleContentTouchStart = (e) => {
     e.stopPropagation();
   };
-
+  
   const handleContentTouchMove = (e) => {
     e.stopPropagation();
   };
-
+  
   const handleContentTouchEnd = (e) => {
     e.stopPropagation();
   };
-
+  
   return (
     <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
       {isMobile ? (
@@ -424,7 +425,7 @@ const MenuTabs = () => {
           ))}
         </div>
       )}
-
+  
       {activeTab && !isMobile && (
         <div className="menu-content" id={activeTab}>
           {menuData[activeTab].map((item, index) => (
@@ -438,6 +439,6 @@ const MenuTabs = () => {
       )}
     </div>
   );
-};
+}
 
 export default MenuTabs;

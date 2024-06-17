@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./menuTabs.css";
 
 const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
+  const menuContentRef = useRef(null);
 
 
   const menuData = {
@@ -323,6 +324,9 @@ const MenuTabs = () => {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    if (isMobile && menuContentRef.current) {
+      menuContentRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -338,7 +342,7 @@ const MenuTabs = () => {
           </div>
         ))}
       </div>
-      <div className="menu-content">
+      <div className="menu-content" ref={menuContentRef}>
         {menuData[activeTab].map((item, index) => (
           <div key={index} className={`menu-item ${activeTab}`}>
             <h3 className="item-name">{item.name}</h3>

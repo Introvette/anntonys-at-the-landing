@@ -329,14 +329,17 @@ const MenuTabs = () => {
   }, []);
 
   const handleTabClick = (tab) => {
-    setActiveTab(tab);
     if (isMobile) {
-      setTimeout(() => {
-        const tabContent = document.querySelector(`#${tab}`);
-        if (tabContent) {
-          tabContent.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 0);
+      if (activeTab === tab) {
+        // If tab is already active, close it
+        setActiveTab(null);
+      } else {
+        // Open the clicked tab
+        setActiveTab(tab);
+      }
+    } else {
+      // For desktop, toggle the active tab
+      setActiveTab(activeTab === tab ? null : tab);
     }
   };
 

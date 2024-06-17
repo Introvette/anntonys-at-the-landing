@@ -10,6 +10,7 @@ const MenuPage = () => {
             <div className="nav-bar">
                 <NavBar />
             </div>
+            
             <div className="menu">
                 <MenuTabs />
             </div>

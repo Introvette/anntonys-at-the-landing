@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./menuTabs.css";
 
 const MenuTabs = () => {
   const [activeTab, setActiveTab] = useState("appetizers");
   const [isMobile, setIsMobile] = useState(null);
-  const startYRef = useRef(null);
-  const isScrollingRef = useRef(false);
-  const menuRef = useRef(null);
+
 
   const menuData = {
     appetizers: [
@@ -22,7 +20,7 @@ const MenuTabs = () => {
       },
       {
         name: "Island Wings",
-        price: "6 Count - $8.50 | 12 Count - 12.95",
+        price: "6 Count - $8.50 | 12 Count - $12.95",
         description: "Island | Mild Jerk | Spicy Jerk | BBQ (All flats or drums +$1)",
       },
       {

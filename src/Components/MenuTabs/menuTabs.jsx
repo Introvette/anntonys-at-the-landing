@@ -311,13 +311,7 @@ const MenuTabs = () => {
 
   useEffect(() => {
     const checkScreenWidth = () => {
-      const isMobileSize = window.innerWidth < 768;
-      setIsMobile(isMobileSize);
-      if (!isMobileSize) {
-        setActiveTab("appetizers");
-      } else {
-        setActiveTab(null);
-      }
+      setIsMobile(window.innerWidth < 768);
     };
 
     checkScreenWidth();
@@ -330,109 +324,31 @@ const MenuTabs = () => {
   }, []);
 
   const handleTabClick = (tab) => {
-    if (isMobile) {
-      setActiveTab(activeTab === tab ? null : tab);
-    } else {
-      setActiveTab(tab);
-    }
-  };
-
-  const handleTouchStart = (e) => {
-    startYRef.current = e.touches[0].clientY;
-    isScrollingRef.current = false;
-  };
-
-  const handleTouchMove = (e) => {
-    const currentY = e.touches[0].clientY;
-    const diffY = Math.abs(currentY - startYRef.current);
-    if (diffY > 10) {
-      isScrollingRef.current = true;
-    }
-  };
-
-  const handleTouchEnd = (e, tab) => {
-    if (!isScrollingRef.current) {
-      handleTabClick(tab);
-    }
-  };
-
-  const handleContentTouchStart = (e) => {
-    e.stopPropagation();
-  };
-
-  const handleContentTouchMove = (e) => {
-    e.stopPropagation();
-  };
-
-  const handleContentTouchEnd = (e) => {
-    e.stopPropagation();
+    setActiveTab(tab);
   };
 
   return (
-    <div className={`menu-tabs-container ${isMobile ? "mobile" : "desktop"}`}>
-      {isMobile ? (
-        <div className="mobile-tabs-wrapper">
-          <input type="checkbox" id="toggle-menu" className="sr-only" />
-          <label htmlFor="toggle-menu" className="toggle-menu-label">
-            <span className="material-icons"></span>
-          </label>
-          <div className="collapsible-menu" ref={menuRef}>
-            {Object.keys(menuData).map((category) => (
-              <div key={category}>
-                <div
-                  className={`tab ${activeTab === category ? "active" : ""}`}
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove}
-                  onTouchEnd={(e) => handleTouchEnd(e, category)}
-                >
-                  {category}
-                </div>
-                {activeTab === category && (
-                  <div
-                    className="menu-content"
-                    id={category}
-                    onTouchStart={handleContentTouchStart}
-                    onTouchMove={handleContentTouchMove}
-                    onTouchEnd={handleContentTouchEnd}
-                  >
-                    {menuData[category].map((item, index) => (
-                      <div key={index} className={`menu-item ${category}`}>
-                        <h3 className="item-name">{item.name}</h3>
-                        <span className="item-price">{item.price}</span>
-                        <p className="item-description">{item.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+    <div className="menu-tabs-container">
+      <div className={`tabs ${isMobile ? "mobile" : "desktop"}`}>
+        {Object.keys(menuData).map((category) => (
+          <div
+            key={category}
+            className={`tab ${activeTab === category ? "active" : ""}`}
+            onClick={() => handleTabClick(category)}
+          >
+            {category}
           </div>
-        </div>
-      ) : (
-        <div className="desktop-tabs-wrapper">
-          {Object.keys(menuData).map((category) => (
-            <div
-              key={category}
-              className={`tab ${activeTab === category ? "active" : ""}`}
-              onClick={() => handleTabClick(category)}
-            >
-              {category}
-            </div>
-          ))}
-        </div>
-      )}
-
-      {activeTab && !isMobile && (
-        <div className="menu-content" id={activeTab}>
-          {menuData[activeTab].map((item, index) => (
-            <div key={index} className={`menu-item ${activeTab}`}>
-              <h3 className="item-name">{item.name}</h3>
-              <span className="item-price">{item.price}</span>
-              <p className="item-description">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      )}
+        ))}
+      </div>
+      <div className="menu-content">
+        {menuData[activeTab].map((item, index) => (
+          <div key={index} className={`menu-item ${activeTab}`}>
+            <h3 className="item-name">{item.name}</h3>
+            <span className="item-price">{item.price}</span>
+            <p className="item-description">{item.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

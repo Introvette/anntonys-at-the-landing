@@ -1,6 +1,9 @@
+/* home.css */
 
 body {
-    background-color: #FFFAD1 ;
+  background-color: #FFFAD1;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .nav-bar-home {
@@ -10,30 +13,82 @@ body {
 .header-image {
   display: flex;
   justify-content: center;
-  }
-  
-  .header-image img {
-    max-width: 50%;
-    max-height: 50%;
-    margin-top: 30px;
+}
+
+.header-image img {
+  max-width: 100%; /* Ensure the image fits within the viewport */
+  height: auto;
+  margin-top: 30px;
+}
+
+.top-corner-images {
+  position: relative;
+  width: 100%; /* Ensure it stays within the viewport */
+  overflow: hidden; /* Prevent children from overflowing */
+}
+
+.top-left-image,
+.top-right-image {
+  position: absolute;
+  top: 0;
+  width: 40%; /* Adjust size for responsiveness */
+  height: auto;
+}
+
+.top-left-image {
+  left: 0;
+}
+
+.top-right-image {
+  right: 0;
+}
+
+.image-container {
+  position: relative; /* Relative positioning for the container */
+  height: 20vh; /* Full viewport height */
+  width: 100%;
+  overflow: hidden; /* Prevent overflow */
+}
+
+.animated-image {
+  position: absolute; /* Absolute positioning for the boat */
+  top: 50%; /* Vertically centered */
+  transform: translateY(-50%); /* Vertically centered */
+  width: 450px; /* Adjust width for desktop */
+  transition: left 0.5s ease-out; /* Smooth transition */
+}
+
+.page-content > div {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  margin-top: 60px;
+}
+
+
+@media (max-width: 768px) {
+  .header-image {
+    display: none;
   }
 
-  .top-corner-images {
-    position: relative;
-    max-width: 2000px;
-    top: 0;
-    left: 0;
-    right: 0;
+  .nav-bar-home {
+    margin-top: 40px;
   }
-  
-  .top-left-image {
-    position: absolute;
-    
-  }
-  
+
+  .top-left-image,
   .top-right-image {
-    position: absolute;
-    right: 0px;
+    width: 40%; /* Adjust size for mobile */
+  }
+
+  .animated-image {
+    width: 250px; /* Adjust width for mobile */
+  }
+
+  .image-container {
+    position: relative; /* Relative positioning for the container */
+    width: 100%;
+    overflow: hidden; /* Prevent overflow */
   }
 
   .page-content > div {
@@ -41,26 +96,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 300px;
   }
   
-  @media (max-width: 768px) {
+}
 
-    .header-image {
-        display: none;
-    }
 
-    .nav-bar-home {
-      margin-top: 40px;
-    }
 
-    .top-left-image {
-        width: 40%;
-        height: auto;
-    }
 
-    .top-right-image {
-        width: 40%;
-        height: auto;
-    }
-  }
+
+
+
+

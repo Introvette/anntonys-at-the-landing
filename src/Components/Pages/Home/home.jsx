@@ -5,6 +5,9 @@ import picture1 from "./2.png";
 import picture2 from "./3.png";
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
+import sammy from "./sammyo.jpg";
+import john from "./johnfrank.jpg";
+import freddy from "./freddyt.jpeg";
 import "./home.css";
 import ContactForm from "../../contactForm/contactForm";
 
@@ -12,24 +15,57 @@ const HomePage = () => {
   const [imageLeft, setImageLeft] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const aboutRef = useRef(null);
-  const anntonysRef = useRef(null); 
+  const anntonysRef = useRef(null);
+  const [cards] = useState([
+    {
+      id: 1,
+      image: sammy,
+      title: "Last Engagement Performance",
+      artist: "Sammy O'Banion",
+      datetime: "June 21st, 2024 @ 6PM - 9PM"
+    },
+    {
+      id: 2,
+      image: john,
+      title: "",
+      artist: "John G Franklin",
+      datetime: "June 28th, 2024 @ 6PM - 9PM"
+    },
+    {
+      id: 3,
+      image: freddy,
+      title: "",
+      artist: "Freddy Tripp",
+      datetime: "June 29th, 2024 @ 5PM - 8PM"
+    }
+  ]);
 
   useEffect(() => {
-    const calculateNewLeftPosition = (scrollY, windowWidth, aboutTop, aboutBottom, boatWidth, anntonysWidth) => {
+    const calculateNewLeftPosition = (
+      scrollY,
+      windowWidth,
+      aboutTop,
+      aboutBottom,
+      boatWidth,
+      anntonysWidth
+    ) => {
       const middleScreen = windowWidth / 2;
 
+      const anntonysPosition =
+        anntonysRef.current.getBoundingClientRect().left +
+        anntonysWidth / 2;
 
-      const anntonysPosition = anntonysRef.current.getBoundingClientRect().left + (anntonysWidth / 2);
-
-      const stopPosition = anntonysPosition - (boatWidth / 2);
+      const stopPosition = anntonysPosition - boatWidth / 2;
 
       if (scrollY < aboutTop) {
-        return windowWidth; 
+        return windowWidth;
       } else if (scrollY >= aboutTop && scrollY <= aboutBottom) {
         const progress = (scrollY - aboutTop) / (aboutBottom - aboutTop);
-        return middleScreen - boatWidth / 2 - (progress * (middleScreen - stopPosition));
+        return (
+          middleScreen - boatWidth / 2 - progress * (middleScreen - stopPosition)
+        );
       } else {
-        return stopPosition; 
+        return stopPosition;
       }
     };
 
@@ -41,7 +77,14 @@ const HomePage = () => {
       const boatWidth = isMobile ? 250 : 450;
       const anntonysWidth = anntonysRef.current.clientWidth;
 
-      const newLeftPosition = calculateNewLeftPosition(currentScrollY, windowWidth, aboutTop, aboutBottom, boatWidth, anntonysWidth);
+      const newLeftPosition = calculateNewLeftPosition(
+        currentScrollY,
+        windowWidth,
+        aboutTop,
+        aboutBottom,
+        boatWidth,
+        anntonysWidth
+      );
 
       requestAnimationFrame(() => {
         setImageLeft(newLeftPosition);
@@ -87,19 +130,43 @@ const HomePage = () => {
             />
           </div>
           <div className="about-text">
-            <p>Welcome to Anntony's at the Landing, where Caribbean zest meets Southern charm on the shores of Lake Norman. Enjoy our healthy rotisserie options enhanced with Anntony's signature Island Sauce, and soak in the great vibes with weekend music. Whether arriving by car or boat, you'll relish our unique flavors and welcoming atmosphere.</p>
+            <p>
+              Welcome to Anntony's at the Landing, where Caribbean zest meets
+              Southern charm on the shores of Lake Norman. Enjoy our healthy
+              rotisserie options enhanced with Anntony's signature Island
+              Sauce, and soak in the great vibes with weekend music. Whether
+              arriving by car or boat, you'll relish our unique flavors and
+              welcoming atmosphere.
+            </p>
           </div>
-          <div className="sauce-container"></div>
-          <div className="contact-container">
-            <ContactForm />
+          <div className="entertainment-sched">
+            <h1>Live Music Schedule</h1>
+          <div className="dynamic-cards">
+          {cards.map((card) => (
+            <div className="card" key={card.id}>
+              <img src={card.image} alt="Artist" />
+              <div className="artist-info">
+                <h3>{card.title}</h3>
+                <h2>{card.artist}</h2>
+                <p>{card.datetime}</p>
+              </div>
+            </div>
+          ))}
           </div>
         </div>
+        <div className="contact-container-home">
+          <ContactForm />
+        </div>
+        </div>
+        <div className="sauce-container"></div>
+        
       </div>
     </div>
   );
 };
 
 export default HomePage;
+
 
 
 

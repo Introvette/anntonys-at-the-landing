@@ -151,6 +151,7 @@ body {
   font-size: 55px;
 }
 
+
 @media (max-width: 768px) {
   .header-image {
     display: none;
@@ -220,7 +221,7 @@ body {
   }
 
   .contact-container-home {
-    margin-top: -140px;
+    margin-top: -450px;
   }
 
   .entertainment-sched h1 {

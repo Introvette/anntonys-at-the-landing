@@ -62,18 +62,14 @@ form {
     max-width: 800px;
     gap: 20px;
   }
-
-
   
   .form-text {
     display: flex;
     justify-content: center;
     align-items: center;
-    
   }
 
 
-  
   @media (max-width: 768px) {
     .contact-container {
       display: flex;

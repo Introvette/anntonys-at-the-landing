@@ -63,7 +63,6 @@ const HomePage = () => {
         const newPosition =
           middleScreen - boatWidth / 2 - progress * (middleScreen - stopPosition);
         
-
         const maxLeftPosition = middleScreen - boatWidth / 2;
         return Math.min(newPosition, maxLeftPosition);
       } else {
@@ -106,7 +105,6 @@ const HomePage = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [isMobile]);
-  
 
   return (
     <div>
@@ -144,31 +142,35 @@ const HomePage = () => {
           </div>
           <div className="entertainment-sched">
             <h1>Live Music Schedule</h1>
-          <div className="dynamic-cards">
-          {cards.map((card) => (
-            <div className="card" key={card.id}>
-              <img className="card-image" src={card.image} alt="Artist" />
-              <div className="artist-info">
-                <h3>{card.title}</h3>
-                <h2>{card.artist}</h2>
-                <p>{card.datetime}</p>
-              </div>
+            <div className="dynamic-cards">
+              {cards.map((card) => (
+                <div className="card" key={card.id}>
+                  <img className="card-image" src={card.image} alt="Artist" />
+                  <div className="artist-info">
+                    <h3>{card.title}</h3>
+                    <h2>{card.artist}</h2>
+                    <p>{card.datetime}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
           </div>
         </div>
-        <div className="contact-container-home">
-          <ContactForm />
+        <div className="side-by-side-containers">
+          <div className="contact-container-home">
+            <ContactForm />
+          </div>
+          <div className="sauce-container">
+            
+          </div>
         </div>
-        </div>
-        <div className="sauce-container"></div>
-        
       </div>
     </div>
   );
 };
 
 export default HomePage;
+
 
 
 

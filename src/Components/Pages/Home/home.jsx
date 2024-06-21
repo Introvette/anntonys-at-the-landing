@@ -12,31 +12,30 @@ const HomePage = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const aboutRef = useRef(null);
 
-  const calculateNewLeftPosition = (scrollY, windowWidth, aboutTop, aboutBottom) => {
-    if (scrollY < aboutTop) {
-
-      return windowWidth;
-    } else if (scrollY >= aboutTop && scrollY < aboutBottom) {
-
-      const progress = (scrollY - aboutTop) / (aboutBottom - aboutTop);
-      const targetCenter = isMobile ? windowWidth / 2 - 125 : windowWidth / 2 - 225; 
-      return windowWidth - (progress * (windowWidth - targetCenter));
-    } else {
-
-      const progress = (scrollY - aboutBottom) / (document.documentElement.scrollHeight - aboutBottom - window.innerHeight);
-      const targetCenter = isMobile ? windowWidth / 2 - 125 : windowWidth / 2 - 225; 
-      return targetCenter - (progress * targetCenter);
-    }
-  };
-
   useEffect(() => {
+    const calculateNewLeftPosition = (scrollY, windowWidth, aboutTop, aboutBottom, boatWidth) => {
+      if (scrollY < aboutTop) {
+
+        return windowWidth;
+      } else if (scrollY >= aboutTop && scrollY < aboutBottom) {
+
+        const progress = (scrollY - aboutTop) / (aboutBottom - aboutTop);
+        return windowWidth - (progress * ((windowWidth - boatWidth) / 2)) - boatWidth;
+      } else {
+
+        const progress = (scrollY - aboutBottom) / (document.documentElement.scrollHeight - aboutBottom - window.innerHeight);
+        return (windowWidth / 2 - (progress * (windowWidth / 2))) - boatWidth;
+      }
+    };
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const windowWidth = window.innerWidth;
       const aboutTop = aboutRef.current.offsetTop - window.innerHeight / 2;
       const aboutBottom = aboutTop + aboutRef.current.clientHeight;
+      const boatWidth = isMobile ? 250 : 450;
 
-      const newLeftPosition = calculateNewLeftPosition(currentScrollY, windowWidth, aboutTop, aboutBottom);
+      const newLeftPosition = calculateNewLeftPosition(currentScrollY, windowWidth, aboutTop, aboutBottom, boatWidth);
 
       requestAnimationFrame(() => {
         setImageLeft(newLeftPosition);
@@ -45,7 +44,7 @@ const HomePage = () => {
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
-      setImageLeft(window.innerWidth); 
+      setImageLeft(window.innerWidth);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -92,6 +91,7 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
 
 
 

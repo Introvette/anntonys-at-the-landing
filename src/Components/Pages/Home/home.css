@@ -124,6 +124,27 @@ body {
   color: #888;
 }
 
+.card img {
+  width: 300px; 
+  height: 300px; 
+  object-fit: cover; 
+}
+
+.card {
+  width: 320px; 
+  height: auto; 
+  margin: 10px; 
+  overflow: hidden;
+}
+
+.entertainment-sched h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-family: "Cookie", cursive;
+  font-size: 55px;
+}
+
 @media (max-width: 768px) {
   .header-image {
     display: none;
@@ -185,33 +206,14 @@ body {
 
   .entertainment-sched h1 {
     display: flex;
-    justify-content: center;
     margin-top: 40px;
     font-family: "Cookie", cursive;
-    font-size: 35px;
+    font-size: 50px;
+    text-align: center;
   }
 }
 
-.card img {
-  width: 300px; 
-  height: 300px; 
-  object-fit: cover; 
-}
 
-.card {
-  width: 320px; 
-  height: auto; 
-  margin: 10px; 
-  overflow: hidden;
-}
-
-.entertainment-sched h1 {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-  font-family: "Cookie", cursive;
-  font-size: 55px;
-}
 
 
 

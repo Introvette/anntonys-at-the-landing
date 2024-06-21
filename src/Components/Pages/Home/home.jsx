@@ -4,6 +4,7 @@ import header from "./home-header.png";
 import picture1 from "./2.png";
 import picture2 from "./3.png";
 import boat from "./boat.png";
+import anntonys from "./anntonyslanding.png";
 import "./home.css";
 import ContactForm from "../../contactForm/contactForm";
 
@@ -11,20 +12,24 @@ const HomePage = () => {
   const [imageLeft, setImageLeft] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const aboutRef = useRef(null);
+  const anntonysRef = useRef(null); 
 
   useEffect(() => {
-    const calculateNewLeftPosition = (scrollY, windowWidth, aboutTop, aboutBottom, boatWidth) => {
+    const calculateNewLeftPosition = (scrollY, windowWidth, aboutTop, aboutBottom, boatWidth, anntonysWidth) => {
+      const middleScreen = windowWidth / 2;
+
+
+      const anntonysPosition = anntonysRef.current.getBoundingClientRect().left + (anntonysWidth / 2);
+
+      const stopPosition = anntonysPosition - (boatWidth / 2);
+
       if (scrollY < aboutTop) {
-
-        return windowWidth;
-      } else if (scrollY >= aboutTop && scrollY < aboutBottom) {
-
+        return windowWidth; 
+      } else if (scrollY >= aboutTop && scrollY <= aboutBottom) {
         const progress = (scrollY - aboutTop) / (aboutBottom - aboutTop);
-        return windowWidth - (progress * ((windowWidth - boatWidth) / 2)) - boatWidth;
+        return middleScreen - boatWidth / 2 - (progress * (middleScreen - stopPosition));
       } else {
-
-        const progress = (scrollY - aboutBottom) / (document.documentElement.scrollHeight - aboutBottom - window.innerHeight);
-        return (windowWidth / 2 - (progress * (windowWidth / 2))) - boatWidth;
+        return stopPosition; 
       }
     };
 
@@ -34,8 +39,9 @@ const HomePage = () => {
       const aboutTop = aboutRef.current.offsetTop - window.innerHeight / 2;
       const aboutBottom = aboutTop + aboutRef.current.clientHeight;
       const boatWidth = isMobile ? 250 : 450;
+      const anntonysWidth = anntonysRef.current.clientWidth;
 
-      const newLeftPosition = calculateNewLeftPosition(currentScrollY, windowWidth, aboutTop, aboutBottom, boatWidth);
+      const newLeftPosition = calculateNewLeftPosition(currentScrollY, windowWidth, aboutTop, aboutBottom, boatWidth, anntonysWidth);
 
       requestAnimationFrame(() => {
         setImageLeft(newLeftPosition);
@@ -70,8 +76,8 @@ const HomePage = () => {
       </div>
       <div className="page-content">
         <div className="about-container" ref={aboutRef}>
-          <h2>Welcome to</h2>
-          <h1>Anntony's at the Landing</h1>
+          <h1>Welcome to</h1>
+          <img ref={anntonysRef} src={anntonys} alt="restaurant name only logo" />
           <div className="image-container">
             <img
               src={boat}
@@ -80,10 +86,13 @@ const HomePage = () => {
               style={{ left: `${imageLeft}px` }}
             />
           </div>
-        </div>
-        <div className="sauce-container"></div>
-        <div className="contact-container">
-          <ContactForm />
+          <div className="about-text">
+            <p>Welcome to Anntony's at the Landing, where Caribbean zest meets Southern charm on the shores of Lake Norman. Enjoy our healthy rotisserie options enhanced with Anntony's signature Island Sauce, and soak in the great vibes with weekend music. Whether arriving by car or boat, you'll relish our unique flavors and welcoming atmosphere.</p>
+          </div>
+          <div className="sauce-container"></div>
+          <div className="contact-container">
+            <ContactForm />
+          </div>
         </div>
       </div>
     </div>
@@ -91,6 +100,9 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
 
 
 

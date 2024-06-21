@@ -72,6 +72,8 @@ form {
     align-items: center;
     
   }
+
+
   
   @media (max-width: 768px) {
     .contact-container {
@@ -79,7 +81,7 @@ form {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 200px;
+      margin-top: 20px;
     }
   
     .left-content {

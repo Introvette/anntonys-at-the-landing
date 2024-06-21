@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NavBar from "../../navBar/navBar";
 import header from "./home-header.png";
 import picture1 from "./2.png";
@@ -10,28 +10,33 @@ import ContactForm from "../../contactForm/contactForm";
 const HomePage = () => {
   const [imageLeft, setImageLeft] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const aboutRef = useRef(null);
 
-  const calculateNewLeftPosition = (scrollY) => {
-    const windowWidth = window.innerWidth;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercentage = scrollY / maxScroll;
+  const calculateNewLeftPosition = (scrollY, windowWidth, aboutTop, aboutBottom) => {
+    if (scrollY < aboutTop) {
 
-    if (scrollPercentage < 0.3) {
-      // Move from right to center
-      return windowWidth - (scrollPercentage / 0.3 * (windowWidth / 2));
-    } else if (scrollPercentage < 0.6) {
-      // Stay in the center
-      return windowWidth / 2;
+      return windowWidth;
+    } else if (scrollY >= aboutTop && scrollY < aboutBottom) {
+
+      const progress = (scrollY - aboutTop) / (aboutBottom - aboutTop);
+      const targetCenter = isMobile ? windowWidth / 2 - 125 : windowWidth / 2 - 225; 
+      return windowWidth - (progress * (windowWidth - targetCenter));
     } else {
-      // Move from center to left
-      return windowWidth / 2 - ((scrollPercentage - 0.6) / 0.4 * (windowWidth / 2));
+
+      const progress = (scrollY - aboutBottom) / (document.documentElement.scrollHeight - aboutBottom - window.innerHeight);
+      const targetCenter = isMobile ? windowWidth / 2 - 125 : windowWidth / 2 - 225; 
+      return targetCenter - (progress * targetCenter);
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const newLeftPosition = calculateNewLeftPosition(currentScrollY);
+      const windowWidth = window.innerWidth;
+      const aboutTop = aboutRef.current.offsetTop - window.innerHeight / 2;
+      const aboutBottom = aboutTop + aboutRef.current.clientHeight;
+
+      const newLeftPosition = calculateNewLeftPosition(currentScrollY, windowWidth, aboutTop, aboutBottom);
 
       requestAnimationFrame(() => {
         setImageLeft(newLeftPosition);
@@ -40,7 +45,7 @@ const HomePage = () => {
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
-      setImageLeft(window.innerWidth); // Reset position on resize
+      setImageLeft(window.innerWidth); 
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -50,7 +55,7 @@ const HomePage = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div>
@@ -65,7 +70,7 @@ const HomePage = () => {
         <NavBar />
       </div>
       <div className="page-content">
-        <div className="about-container">
+        <div className="about-container" ref={aboutRef}>
           <h2>Welcome to</h2>
           <h1>Anntony's at the Landing</h1>
           <div className="image-container">
@@ -87,6 +92,10 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
+
+
 
 
 

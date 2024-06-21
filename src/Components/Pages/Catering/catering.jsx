@@ -15,7 +15,7 @@ const CateringPage = () => {
       <div className="page-content">
         <div>
           <h1>Download Our Catering Menu</h1>
-          <button onClick={handleDownload}>Download PDF</button>
+          <button className="catering-btn" onClick={handleDownload}>Download PDF</button>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ const AboutPage = () => {
     <>
       <NavBar />
       <div className="centered-content">
-        <img src={construction} alt="About Page Image" className="centered-image" />
+        <img src={construction} alt="Page Under Construction" className="centered-image" />
       </div>
     </>
   );

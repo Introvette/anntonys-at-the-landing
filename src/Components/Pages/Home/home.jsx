@@ -50,25 +50,27 @@ const HomePage = () => {
       anntonysWidth
     ) => {
       const middleScreen = windowWidth / 2;
-
+  
       const anntonysPosition =
-        anntonysRef.current.getBoundingClientRect().left +
-        anntonysWidth / 2;
-
+        anntonysRef.current.getBoundingClientRect().left + anntonysWidth / 2;
+  
       const stopPosition = anntonysPosition - boatWidth / 2;
-
+  
       if (scrollY < aboutTop) {
         return windowWidth;
       } else if (scrollY >= aboutTop && scrollY <= aboutBottom) {
         const progress = (scrollY - aboutTop) / (aboutBottom - aboutTop);
-        return (
-          middleScreen - boatWidth / 2 - progress * (middleScreen - stopPosition)
-        );
+        const newPosition =
+          middleScreen - boatWidth / 2 - progress * (middleScreen - stopPosition);
+        
+
+        const maxLeftPosition = middleScreen - boatWidth / 2;
+        return Math.min(newPosition, maxLeftPosition);
       } else {
         return stopPosition;
       }
     };
-
+  
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const windowWidth = window.innerWidth;
@@ -76,7 +78,7 @@ const HomePage = () => {
       const aboutBottom = aboutTop + aboutRef.current.clientHeight;
       const boatWidth = isMobile ? 250 : 450;
       const anntonysWidth = anntonysRef.current.clientWidth;
-
+  
       const newLeftPosition = calculateNewLeftPosition(
         currentScrollY,
         windowWidth,
@@ -85,25 +87,26 @@ const HomePage = () => {
         boatWidth,
         anntonysWidth
       );
-
+  
       requestAnimationFrame(() => {
         setImageLeft(newLeftPosition);
       });
     };
-
+  
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
       setImageLeft(window.innerWidth);
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
   }, [isMobile]);
+  
 
   return (
     <div>
@@ -144,7 +147,7 @@ const HomePage = () => {
           <div className="dynamic-cards">
           {cards.map((card) => (
             <div className="card" key={card.id}>
-              <img src={card.image} alt="Artist" />
+              <img className="card-image" src={card.image} alt="Artist" />
               <div className="artist-info">
                 <h3>{card.title}</h3>
                 <h2>{card.artist}</h2>

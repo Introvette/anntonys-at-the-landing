@@ -182,6 +182,14 @@ body {
   .contact-container-home {
     margin-top: -140px;
   }
+
+  .entertainment-sched h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    font-family: "Cookie", cursive;
+    font-size: 35px;
+  }
 }
 
 .card img {
@@ -203,8 +211,6 @@ body {
   margin-top: 40px;
   font-family: "Cookie", cursive;
   font-size: 55px;
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 

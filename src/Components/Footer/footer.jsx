@@ -12,9 +12,6 @@ const Footer = () => {
       </div>
 
       <div>
-        <a href="/policy" target="_blank" rel="noopener noreferrer">
-          Privacy Policy & Terms of Conditions
-        </a>
         <a
           href="https://www.instagram.com/anntonysatthelanding/"
           target="_blank"
@@ -28,6 +25,9 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           Facebook
+        </a>
+        <a href="/policy" target="_blank" rel="noopener noreferrer">
+          Privacy Policy & Terms of Conditions
         </a>
       </div>
     </footer>

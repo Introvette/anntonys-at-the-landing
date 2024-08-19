@@ -11,6 +11,11 @@ body {
   margin-top: 60px;
 }
 
+.privacy {
+  text-align: left;
+  margin-top: 15px;
+}
+
 .centered-content p {
   text-align: left;
 }

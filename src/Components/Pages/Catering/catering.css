@@ -1,45 +1,59 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .page-content {
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: black;
-    font-family: "Titan One", sans-serif;
-    margin-bottom: 20px;
-  }
-  
-  .catering-btn {
-    background-color: #0C9098;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 10px;
-  }
-  
-  button:hover {
-    background-color: #0A6B70;
-  }
-  
+  flex: 1;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+  text-align: center;
+}
 
-  @media (max-width: 768px) {
-    .page-content {
-      padding: 10px;
-    }
-  
-    h1 {
-      font-size: 24px;
-    }
-  
-    button {
-      font-size: 16px;
-    }
+h1 {
+  color: black;
+  font-family: "Titan One", sans-serif;
+  margin-bottom: 20px;
+}
+
+.catering-btn {
+  background-color: #0c9098;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+}
+
+.catering-btn:hover {
+  background-color: #0a6b70;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 10px;
   }
-  
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .catering-btn {
+    font-size: 16px;
+  }
+}

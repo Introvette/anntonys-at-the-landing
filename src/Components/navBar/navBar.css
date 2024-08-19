@@ -1,105 +1,79 @@
-
-
 .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-image: linear-gradient(to left, #FFFAD1, #0C9098);
-    height: 100px;
-    margin-top: 120px;
-  }
-  
-  .logo {
-    margin-right: 2rem;
-  }
-  
-  .logo img {
-    width: 300px;
-    height: auto;
-  }
-  
-  .nav-menu {
-    display: flex;
-    justify-content: space-evenly;
-    flex-grow: 1;
-    max-width: 2000px;
-  }
-  
-  .nav-menu a {
-    color: #FF9F07;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.3s;
-    font-size: 25px;
-    font-family: "Titan One", sans-serif;
-    font-weight: 200;
-    text-shadow: -1px -1px 0 black,  
-               1px -1px 0 black,
-              -1px 1px 0 black,
-               1px 1px 0 black;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(to left, #fffad1, #0c9098);
+  height: 100px;
+  margin-top: 200px;
+}
 
-  
-  .nav-menu a::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.2); 
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.3s;
-    border-radius: 50%;
-    z-index: -1;
-  }
-  
-  .nav-menu a:hover::before {
-    transform: translate(-50%, -50%) scale(3); 
-  }
-  
-  .nav-menu a:not(:hover) {
-    transition: transform 0.3s, color 0.3s; 
-  }
-  
-  .nav-menu a:hover {
-    color: white;
-    transform: rotate(10deg); 
-  }
+.logo {
+  margin-right: 2rem;
+}
 
-  .active-link {
-    color: white; 
-  }
-  
-  .mobile-menu-toggle {
-    display: block;
-    font-size: 1.5rem;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    display: none;
-    margin-top: -62px;
-  }
-  
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    background-color: #ffffff;
-    padding: 1rem;
-    align-items: center;
-    justify-content: center; 
-  }
-  
-  
-  .mobile-menu .back-button i {
-    margin-right: 0.5rem;
-  }
+.logo img {
+  width: 300px;
+  height: auto;
+}
 
+.nav-menu {
+  display: flex;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  max-width: 2000px;
+}
+
+.nav-menu a {
+  color: #ff9f07;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+  font-size: 25px;
+  font-family: "Titan One", sans-serif;
+  font-weight: 200;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.nav-menu a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.nav-menu a:hover::before {
+  transform: translate(-50%, -50%) scale(3);
+}
+
+.nav-menu a:not(:hover) {
+  transition: transform 0.3s, color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: white;
+  transform: rotate(5deg);
+}
+
+.active-link {
+  color: white;
+}
+
+.mobile-menu-toggle {
+  display: block;
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: none;
+  margin-top: -62px;
+}
 
 .mobile-menu {
   position: fixed;
@@ -113,19 +87,37 @@
   padding: 1rem;
   align-items: center;
   justify-content: center;
-  z-index: 1000; 
-  background-color: #FFFAD1;
+}
+
+.mobile-menu .back-button i {
+  margin-right: 0.5rem;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: #fffad1;
 }
 
 .mobile-menu a {
   color: #0c9098;
   text-decoration: none;
-  padding: 1rem; 
-  font-size: 1.2rem; 
-  width: 100%; 
+  padding: 1rem;
+  font-size: 1.2rem;
+  width: 100%;
   text-align: center;
-  font-family:"Titan One", sans-serif;
-  border-bottom: 3px solid #FF9F07;
+  font-family: "Titan One", sans-serif;
+  border-bottom: 3px solid #ff9f07;
 }
 
 .mobile-menu .back-button {
@@ -170,32 +162,31 @@
   }
 }
 
-  
-  @media (max-width: 768px) {
-    .navbar-container {
-      flex-direction: column;
-      background-image: none; 
-    }
-  
-    .logo {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: -85px;
-    }
-  
-    .nav-menu {
-      display: none;
-    }
-  
-    .mobile-menu-toggle {
-      margin-left: auto;
-      margin-right: 45px;
-      display: block;
-      font-size: 40px;
-      color: #0C9098;
-    }
-  
-    .mobile-menu {
-      display: flex;
-    }
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    background-image: none;
   }
+
+  .logo {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -85px;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    margin-left: auto;
+    margin-right: 45px;
+    display: block;
+    font-size: 40px;
+    color: #0c9098;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+}

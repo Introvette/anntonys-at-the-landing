@@ -6,33 +6,37 @@ const MenuTabs = () => {
   const [isMobile, setIsMobile] = useState(null);
   const menuContentRef = useRef(null);
 
-
   const menuData = {
     appetizers: [
       {
         name: "Jamaican Patties (1)",
         price: "$3.25",
-        description: "A savory hand pie with your filling choice of beef, chicken, or veggies.",
+        description:
+          "A savory hand pie with your filling choice of beef, chicken, or veggies.",
       },
       {
         name: "Chicken Salad Plate",
         price: "$7.50",
-        description: "Shredded rotisserie chicken, carrots, and green onions. Served with crackers.",
+        description:
+          "Shredded rotisserie chicken, carrots, and green onions. Served with crackers.",
       },
       {
         name: "Island Wings",
-        price: "6 Count - $8.50 | 12 Count - $12.95",
-        description: "Island | Mild Jerk | Spicy Jerk | BBQ (All flats or drums +$1)",
+        price: "6 Count - $8.50 | 12 Count - $14.95",
+        description:
+          "Island | Mild Jerk | Spicy Jerk | BBQ (All flats or drums +$1)",
       },
       {
         name: "Southern Style Salmon Cake (1)",
         price: "$9.50",
-        description: "Southern fried salmon cake made with salmon, sweet peppers, and green onions.",
+        description:
+          "Southern fried salmon cake made with salmon, sweet peppers, and green onions.",
       },
       {
         name: "Calypso Crab Cake (1)",
         price: "$12.99",
-        description: "Southern fried crab cake made with real crab meat, sweet peppers, and green onions.",
+        description:
+          "Southern fried crab cake made with real crab meat, sweet peppers, and green onions.",
       },
       {
         name: "Tropical Shrimp (8)",
@@ -49,24 +53,27 @@ const MenuTabs = () => {
       {
         name: "House Salad",
         price: "$7.95",
-        description: "Mixed baby lettuce, sweet peppers, red onion, and tomato. Your choice of Caribbean Aioli or Balsamic Vinaigrette dressing.",
+        description:
+          "Mixed baby lettuce, sweet peppers, red onion, and tomato. Your choice of Caribbean Aioli or Balsamic Vinaigrette dressing.",
       },
       {
         name: "Add protein",
         price: "$6.25",
-        description: "Boneless chicken breast, Cuban roast pork, chicken salad, or salmon cake.",
+        description:
+          "Boneless chicken breast, Cuban roast pork, chicken salad, or salmon cake.",
       },
       {
         name: "Calypso Crab Cake Salad",
         price: "$20.90",
-        description: ""
+        description: "",
       },
     ],
     sandwiches: [
       {
         name: "Handhelds",
         price: "$13.95",
-        description: "Protein, lettuce, red onion, tomato, and our homemade Caribbean Aioli on toasted hamburger buns",
+        description:
+          "Protein, lettuce, red onion, tomato, and our homemade Caribbean Aioli on toasted hamburger buns",
       },
       {
         name: "Grilled Chicken Sandwich",
@@ -81,7 +88,8 @@ const MenuTabs = () => {
       {
         name: "Bahama Burger",
         price: " ",
-        description: "Fresh char grilled to perfection beef burger patty with cheese, and a sweet pressed plantain",
+        description:
+          "Fresh char grilled to perfection beef burger patty with cheese, and a sweet pressed plantain",
       },
       {
         name: "Salmon Cake Sandwich",
@@ -146,19 +154,20 @@ const MenuTabs = () => {
         description: "",
       },
     ],
-    wraps: [
+    bowls: [
       {
-        name: "Grilled Chicken Wrap",
-        price: "13.95",
-        description: "Sautéed red onions, sweet peppers and grilled chicken in our Anntony's Island sauce wrapped in a Caribbean style flat bread.",
+        name: "BOWLS",
+        price: "$13.95",
+        description:
+          "Sautéed red onions, sweet peppers and your choice of grilled chicken, roast pork, salmon cake over simple rice.",
       },
       {
-        name: "Roast Pork Wrap",
-        price: "$13.95",
-        description: "Sautéed red onions, sweet peppers and grilled chicken in our Anntony's Island sauce wrapped in a Caribbean style flat bread.",
+        name: "Sub protein for shrimp OR crab cake",
+        price: "+ $12.95",
+        description: "",
       },
     ],
-    'rotisserie and grill': [
+    "rotisserie and grill": [
       {
         name: "Tony's Caribbean Dinners",
         price: "$16.99",
@@ -194,7 +203,6 @@ const MenuTabs = () => {
         price: "$30.95",
         description: "Choice of three meats",
       },
-
     ],
     seafood: [
       {
@@ -215,22 +223,26 @@ const MenuTabs = () => {
       {
         name: "Southern Style Salmon Cakes",
         price: "",
-        description: "Southern fried salmon cakes made with salmon, sweet peppers, and green onions.",
+        description:
+          "Southern fried salmon cakes made with salmon, sweet peppers, and green onions.",
       },
       {
         name: "Calypso Crab Cakes",
         price: "$26.45",
-        description: "Southern fried crab cakes made with real crab meat, sweet peppers, and green onions.",
+        description:
+          "Southern fried crab cakes made with real crab meat, sweet peppers, and green onions.",
       },
       {
         name: "Salmon Stuffed Flounder",
         price: "",
-        description: "Broiled flounder fillets stuffed with shredded salmon, and served with our homemade Caribbean Aoli.",
+        description:
+          "Broiled flounder fillets stuffed with shredded salmon, and served with our homemade Caribbean Aoli.",
       },
       {
         name: "Antigua Stuffed Flounder",
         price: "$26.45",
-        description: "Broiled flounder fillets stuffed with real crab meat, and served with our homemade Caribbean Aoli.",
+        description:
+          "Broiled flounder fillets stuffed with real crab meat, and served with our homemade Caribbean Aoli.",
       },
     ],
     sides: [
@@ -307,7 +319,6 @@ const MenuTabs = () => {
     ],
   };
 
-
   useEffect(() => {
     const checkScreenWidth = () => {
       setIsMobile(window.innerWidth < 768);
@@ -323,6 +334,14 @@ const MenuTabs = () => {
   }, []);
 
   const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    if (isMobile && menuContentRef.current) {
+      menuContentRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // won't work but try
+  const handleTabMouseOver = (tab) => {
     setActiveTab(tab);
     if (isMobile && menuContentRef.current) {
       menuContentRef.current.scrollIntoView({ behavior: "smooth" });

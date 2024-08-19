@@ -341,12 +341,6 @@ const MenuTabs = () => {
   };
 
   // won't work but try
-  const handleTabMouseOver = (tab) => {
-    setActiveTab(tab);
-    if (isMobile && menuContentRef.current) {
-      menuContentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <div className="menu-tabs-container">

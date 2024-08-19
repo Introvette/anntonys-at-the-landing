@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import NavBar from "../../navBar/navBar";
-import header from "./home-header.png";
-import picture1 from "./2.png";
-import picture2 from "./3.png";
+
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
 import sammy from "./sammyo.jpg";
@@ -76,7 +74,7 @@ const HomePage = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const windowWidth = window.innerWidth;
-      const aboutTop = aboutRef.current.offsetTop - window.innerHeight / 2;
+      const aboutTop = aboutRef.current.offsetTop - window.innerHeight / 3;
       const aboutBottom = aboutTop + aboutRef.current.clientHeight;
       const boatWidth = isMobile ? 250 : 450;
       const anntonysWidth = anntonysRef.current.clientWidth;
@@ -111,13 +109,6 @@ const HomePage = () => {
 
   return (
     <div>
-      {/* <div className="top-corner-images">
-        <img src={picture1} alt="leaves" className="top-left-image" />
-        <img src={picture2} alt="leaves" className="top-right-image" />
-      </div>
-      <div className="header-image">
-        <img src={header} alt="food" />
-      </div> */}
       <div className="nav-bar-home">
         <NavBar />
       </div>

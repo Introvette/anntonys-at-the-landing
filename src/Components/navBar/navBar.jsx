@@ -18,7 +18,9 @@ const NavBar = () => {
   return (
     <div className="navbar-container">
       <div className="logo">
-        <img src={logo} alt="anntonys" />
+        <a href="/home">
+          <img src={logo} alt="anntonys" />
+        </a>
       </div>
       <div className="nav-menu">
         <NavLink exact to="/" ActiveClassName="active-link">

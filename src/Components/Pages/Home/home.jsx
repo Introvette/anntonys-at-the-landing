@@ -3,9 +3,9 @@ import NavBar from "../../navBar/navBar";
 
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
-import sammy from "./sammyo.jpg";
-import john from "./johnfrank.jpg";
-import freddy from "./freddyt.jpeg";
+import ian from "./ian.jpg";
+import ian2 from "./ian2.jpg";
+import frank from "./frank.jpg";
 import "./home.css";
 import ContactForm from "../../contactForm/contactForm";
 import Footer from "../../Footer/footer";
@@ -18,24 +18,24 @@ const HomePage = () => {
   const [cards] = useState([
     {
       id: 1,
-      image: sammy,
-      title: "Last Engagement Performance",
-      artist: "Sammy O'Banion",
-      datetime: "June 21st, 2024 @ 6PM - 9PM",
+      image: ian,
+      title: "",
+      artist: "Ian Cunningham",
+      datetime: "Friday, August 9th, 2024 6PM-9PM",
     },
     {
       id: 2,
-      image: john,
+      image: frank,
       title: "",
-      artist: "John G Franklin",
-      datetime: "June 28th, 2024 @ 6PM - 9PM",
+      artist: "Frank Sciandra",
+      datetime: "Saturday August 10th, 2024 @ 5PM - 8PM",
     },
     {
       id: 3,
-      image: freddy,
+      image: ian2,
       title: "",
-      artist: "Freddy Tripp",
-      datetime: "June 29th, 2024 @ 5PM - 8PM",
+      artist: "Ian Cunningham",
+      datetime: "Friday July 19th 2024, 6PM - 9PM",
     },
   ]);
 

@@ -10,16 +10,16 @@ const AboutPage = () => {
       <NavBar />
       <div className="centered-content">
         <section id="about">
-          <h1>About Us</h1>
+          <h2>About Us</h2>
           <br />
 
           <p>
             Welcome to Anntony's at the Landing, where a legacy of flavor and
-            tradition continues to thrive. Since 1984, Anntony's has been a
-            cornerstone of Charlotte, NC, renowned as the city's first
-            rotisserie chicken restaurant. It was here that our famous All
-            Purpose Island Sauce was first created, a recipe that has since
-            garnered recognition across North Carolina and beyond.
+            tradition continues to thrive. Since 1984, Dr. Anthony Martin, owner
+            of Anntony's, has been a cornerstone of Charlotte, NC, renowned as
+            the city's first rotisserie chicken restaurant. It was here that his
+            famous All Purpose Island Sauce was first created, a recipe that has
+            since garnered recognition across North Carolina and beyond.
           </p>
           <br />
           <p>

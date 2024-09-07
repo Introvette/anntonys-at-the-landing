@@ -3,11 +3,11 @@ import NavBar from "../../navBar/navBar";
 
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
-import ian from "./ian.jpg";
-import ian2 from "./ian2.jpg";
-import frank from "./frank.jpg";
+import ben from "./ben.png";
+import john from "./john.jpg";
+import pamela from "./pamela.jpg";
 import "./home.css";
-import ContactForm from "../../contactForm/contactForm";
+// import ContactForm from "../../contactForm/contactForm";
 import Footer from "../../Footer/footer";
 
 const HomePage = () => {
@@ -18,24 +18,24 @@ const HomePage = () => {
   const [cards] = useState([
     {
       id: 1,
-      image: ian,
+      image: pamela,
       title: "",
-      artist: "Ian Cunningham",
-      datetime: "Friday, August 9th, 2024 6PM-9PM",
+      artist: "Pamela DeMarche & Neal Davenport",
+      datetime: "Saturday, September 7th, 2024 6PM-9PM",
     },
     {
       id: 2,
-      image: frank,
+      image: ben,
       title: "",
-      artist: "Frank Sciandra",
-      datetime: "Saturday August 10th, 2024 @ 5PM - 8PM",
+      artist: "Ben Gatlin",
+      datetime: "Friday, September 13th, 2024 5PM-8PM",
     },
     {
       id: 3,
-      image: ian2,
+      image: john,
       title: "",
-      artist: "Ian Cunningham",
-      datetime: "Friday July 19th 2024, 6PM - 9PM",
+      artist: "John G. Franklin",
+      datetime: "Friday, September 20th, 2024 6PM-9PM",
     },
   ]);
 
@@ -155,9 +155,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="side-by-side-containers">
-          <div className="contact-container-home">
-            <ContactForm />
-          </div>
+          <div className="contact-container-home">{/* <ContactForm /> */}</div>
           <div className="sauce-container"></div>
         </div>
       </div>

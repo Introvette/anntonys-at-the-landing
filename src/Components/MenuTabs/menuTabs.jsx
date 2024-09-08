@@ -340,8 +340,6 @@ const MenuTabs = () => {
     }
   };
 
-  // won't work but try
-
   return (
     <div className="menu-tabs-container">
       <div className={`tabs ${isMobile ? "mobile" : "desktop"}`}>

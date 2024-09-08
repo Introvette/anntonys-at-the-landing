@@ -14,13 +14,12 @@ const AboutPage = () => {
           <br />
 
           <p>
-            Welcome to Anntony's at the Landing, where a legacy of flavor and
-            tradition continues to thrive. Since 1984, Dr. Anthony Martin, owner
-            of Anntony's, has been a cornerstone in Charlotte, NC, renowned as
-            the first Caribbean chicken restaurant in the South. It was here
-            that his famous All Purpose Island Sauce was first created, a recipe
-            that has since garnered recognition across North Carolina and
-            beyond.
+            Welcome to Anntony's at the Landing, where the legacy of flavor and
+            tradition thrives. Since 1984, Dr. Anthony Martin, owner of
+            Anntony's, has built a cornerstone in Charlotte, NC, known as the
+            South's first Caribbean chicken restaurant. It was here that his
+            famous All Purpose Island Sauce was born—a recipe that has earned
+            recognition throughout North Carolina and beyond.
           </p>
           <br />
           <p>

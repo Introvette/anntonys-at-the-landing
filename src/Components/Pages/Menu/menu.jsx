@@ -17,7 +17,7 @@ const MenuPage = () => {
             <a
               rel="noreferrer"
               target="_blank"
-              href="https://food.google.com/chooseprovider?restaurantId=/g/11y3l19byq&g2lbs=AOHF13mTK3JA_xXQeywPnD7FDtdh4Ak4e0zReLaIdexuWlN0ptNxzh_8tZFgbM6FqT4BohsAnF7MRmZQIugt1GiXGgozmqZprmIRGXp9m2QdkJYWEef6-JlT6nxxMiSNwps-34ziGXR_&hl=en-US&gl=us&cs=1&ssta=1&fo_m=MfohQo559jFvMUOzJVpjPL1YMfZ3bInYwBDuMfaXTPp5KXh-&gei=bLe2Zp60MPGewN4PrIqJ0A0&ei=bLe2Zp60MPGewN4PrIqJ0A0&fo_s=OA&opi=89978449&foub=mcpp&sa=X&ved=2ahUKEwiemt_CmOmHAxVxD9AFHSxFAtoQjYwDKAB6BAg7EAI&sei=CWdS7KUJ5l2SEURP4rblqCx3&utm_campaign&utm_source=search"
+              href="https://order.toasttab.com/online/anntonys-at-the-landing-4491-slanting-bridge-road?diningOption=takeout&rwg_token=AJKvS9UmVF2kYkaCYheQiubUgNyWbXsWJbzSMtQyFgml3EBXVX3ey27ntGhR1GIOhyaUuzw1X4FNIwxHa6vUPdRYIY8_3k5Ydg%3D%3D"
             >
               Order Online
             </a>

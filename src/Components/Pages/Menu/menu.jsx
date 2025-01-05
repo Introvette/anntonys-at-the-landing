@@ -22,6 +22,15 @@ const MenuPage = () => {
               Order Online
             </a>
           </button>
+               <button className="order-online">
+            <a
+              rel="noreferrer"
+              target="_blank"
+              href="https://drive.google.com/file/d/1UI6EPuDNzdbt-4UbovcLku0ZgERw2Ydw/view?usp=sharing"
+            >
+              Download Menu
+            </a>
+          </button>
         </div>
         <MenuTabs />
       </div>

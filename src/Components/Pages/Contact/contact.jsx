@@ -45,7 +45,7 @@ const ContactPage = () => {
                   <b>
                     <i>Sunday:</i>
                   </b>{" "}
-                  11AM - 8PM
+                  12PM - 8PM
                 </li>
               </ul>
             </div>

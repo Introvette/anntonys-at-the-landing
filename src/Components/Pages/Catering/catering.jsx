@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../../navBar/navBar";
-import pdfFile from "./catering.pdf";
+import pdfFile from "./Anntonys-Catering.pdf";
 import Footer from "../../Footer/footer";
 import "./catering.css";
 

@@ -18,6 +18,8 @@ const CateringPage = () => {
           <button className="catering-btn" onClick={handleDownload}>
             Download PDF
           </button>
+          <br></br>
+          <a href="https://www.ezcater.com/catering/pvt/anntonys-at-the-landing-3"><h1>Order Catering Online Through EzCater</h1></a>
         </div>
       </div>
       <Footer />

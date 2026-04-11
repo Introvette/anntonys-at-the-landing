@@ -3,9 +3,8 @@ import NavBar from "../../navBar/navBar";
 
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
-import ben from "./ben.png";
-import john from "./john.jpg";
-import pamela from "./pamela.jpg";
+import pfrank from "./pfrank.png";
+import bethg from "./bethg.jpg";
 import "./home.css";
 // import ContactForm from "../../contactForm/contactForm";
 import Footer from "../../Footer/footer";
@@ -18,24 +17,17 @@ const HomePage = () => {
   const [cards] = useState([
     {
       id: 1,
-      image: pamela,
+      image: bethg,
       title: "",
-      artist: "Pamela DeMarche & Neal Davenport",
-      datetime: "Saturday, September 7th, 2024 6PM-9PM",
+      artist: "Beth Gatlin",
+      datetime: "April 17th, 2026 5:30PM-8:30PM",
     },
     {
       id: 2,
-      image: ben,
+      image: pfrank,
       title: "",
-      artist: "Ben Gatlin",
-      datetime: "Friday, September 13th, 2024 5PM-8PM",
-    },
-    {
-      id: 3,
-      image: john,
-      title: "",
-      artist: "John G. Franklin",
-      datetime: "Friday, September 20th, 2024 6PM-9PM",
+      artist: "Papa Frank",
+      datetime: "April 24th, 2026 5:30PM-8:30PM",
     },
   ]);
 

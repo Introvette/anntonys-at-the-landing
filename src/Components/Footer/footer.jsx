@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <div>
         <h4>Contact Us</h4>
-        <p>4491 Slanting Bride Road, Sherrills Ford, NC, 28673</p>
+        <p>4491 Slanting Bridge Road, Sherrills Ford, NC, 28673</p>
         <p>Phone: (828) 478 - 5944</p>
         <p>Email: anntonysatthelanding@gmail.com</p>
       </div>

@@ -4,7 +4,10 @@ import NavBar from "../../navBar/navBar";
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
 import pfrank from "./pfrank.png";
-import bethg from "./bethg.jpg";
+import sagefire from "./sage-fire.jpg";
+import joedo from "./joedo.jpg";
+import justhavingfun from "./justhavingfun.jpg";
+import livemusic from "./livemusic.png";
 import "./home.css";
 // import ContactForm from "../../contactForm/contactForm";
 import Footer from "../../Footer/footer";
@@ -17,17 +20,66 @@ const HomePage = () => {
   const [cards] = useState([
     {
       id: 1,
-      image: bethg,
-      title: "",
-      artist: "Beth Gatlin",
-      datetime: "April 17th, 2026 5:30PM-8:30PM",
-    },
-    {
-      id: 2,
       image: pfrank,
       title: "",
       artist: "Papa Frank",
       datetime: "April 24th, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 2,
+      image: sagefire,
+      title: "",
+      artist: "Sage Fire",
+      datetime: "May 1st, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 3,
+      image: livemusic,
+      title: "",
+      artist: "Stacy",
+      datetime: "May 2nd, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 4,
+      image: livemusic,
+      title: "",
+      artist: "Dave and Teresa",
+      datetime: "May 8th, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 5,
+      image: livemusic,
+      title: "",
+      artist: "Mike Tibbs",
+      datetime: "May 15th, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 6,
+      image: livemusic,
+      title: "",
+      artist: "Breaking Point Duo",
+      datetime: "May 16th, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 7,
+      image: joedo,
+      title: "",
+      artist: "Joe Donelan",
+      datetime: "May 22nd, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 8,
+      image: livemusic,
+      title: "",
+      artist: "Back in Time",
+      datetime: "May 29th, 2026 5:30PM-8:30PM",
+    },
+    {
+      id: 9,
+      image: justhavingfun,
+      title: "",
+      artist: "Just Having Fun",
+      datetime: "May 30th, 2026 5:30PM-8:30PM",
     },
   ]);
 

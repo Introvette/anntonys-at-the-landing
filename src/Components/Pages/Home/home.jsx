@@ -67,15 +67,9 @@ const HomePage = () => {
       artist: "Joe Donelan",
       datetime: "May 22nd, 2026 5:30PM-8:30PM",
     },
+
     {
       id: 8,
-      image: livemusic,
-      title: "",
-      artist: "Back in Time",
-      datetime: "May 29th, 2026 5:30PM-8:30PM",
-    },
-    {
-      id: 9,
       image: justhavingfun,
       title: "",
       artist: "Just Having Fun",

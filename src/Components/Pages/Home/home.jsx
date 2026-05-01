@@ -6,8 +6,11 @@ import anntonys from "./anntonyslanding.png";
 import pfrank from "./pfrank.png";
 import sagefire from "./sage-fire.jpg";
 import joedo from "./joedo.jpg";
-import justhavingfun from "./justhavingfun.jpg";
 import livemusic from "./livemusic.png";
+import tnd from "./tnd.png";
+import miketibbs from "./miketibbs.jpg";
+import justhavingfun from "./justhavingfun.jpeg";
+import backintime from "./backintime.jpg";
 import "./home.css";
 // import ContactForm from "../../contactForm/contactForm";
 import Footer from "../../Footer/footer";
@@ -41,33 +44,32 @@ const HomePage = () => {
     },
     {
       id: 4,
-      image: livemusic,
+      image: tnd,
       title: "",
       artist: "Dave and Teresa",
       datetime: "May 8th, 2026 5:30PM-8:30PM",
     },
     {
       id: 5,
-      image: livemusic,
+      image: miketibbs,
       title: "",
       artist: "Mike Tibbs",
       datetime: "May 15th, 2026 5:30PM-8:30PM",
     },
     {
       id: 6,
-      image: livemusic,
-      title: "",
-      artist: "Breaking Point Duo",
-      datetime: "May 16th, 2026 5:30PM-8:30PM",
-    },
-    {
-      id: 7,
       image: joedo,
       title: "",
       artist: "Joe Donelan",
       datetime: "May 22nd, 2026 5:30PM-8:30PM",
     },
-
+    {
+      id: 7,
+      image: backintime,
+      title: "",
+      artist: "Back in Time",
+      datetime: "May 29th, 2026 5:30PM-8:30PM",
+    },
     {
       id: 8,
       image: justhavingfun,

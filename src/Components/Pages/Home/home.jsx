@@ -3,14 +3,13 @@ import NavBar from "../../navBar/navBar";
 
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
-import pfrank from "./pfrank.png";
 import sagefire from "./sage-fire.jpg";
 import joedo from "./joedo.jpg";
-import livemusic from "./livemusic.png";
 import tnd from "./tnd.png";
 import miketibbs from "./miketibbs.jpg";
 import justhavingfun from "./justhavingfun.jpeg";
 import backintime from "./backintime.jpg";
+import stacy from "./stacy.JPG";
 import "./home.css";
 // import ContactForm from "../../contactForm/contactForm";
 import Footer from "../../Footer/footer";
@@ -30,7 +29,7 @@ const HomePage = () => {
     },
     {
       id: 2,
-      image: livemusic,
+      image: stacy,
       title: "",
       artist: "Stacy",
       datetime: "May 2nd, 2026 5:30PM-8:30PM",

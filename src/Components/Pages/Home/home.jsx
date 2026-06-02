@@ -3,12 +3,11 @@ import NavBar from "../../navBar/navBar";
 
 import boat from "./boat.png";
 import anntonys from "./anntonyslanding.png";
-import sagefire from "./sage-fire.jpg";
+import bethg from "./bethg.jpg";
+import pfrank from "./pfrank.png";
+import kensifford from "./kensifford.jpg";
 import joedo from "./joedo.jpg";
 import tnd from "./tnd.png";
-import miketibbs from "./miketibbs.jpg";
-import justhavingfun from "./justhavingfun.jpeg";
-import backintime from "./backintime.jpg";
 import stacy from "./stacy.JPG";
 import "./home.css";
 // import ContactForm from "../../contactForm/contactForm";
@@ -22,52 +21,45 @@ const HomePage = () => {
   const [cards] = useState([
     {
       id: 1,
-      image: sagefire,
+      image: bethg,
       title: "",
-      artist: "Sage Fire",
-      datetime: "May 1st, 2026 5:30PM-8:30PM",
+      artist: "Beth Gatlin",
+      datetime: "June 5th, 2026 5:30PM-8:30PM",
     },
     {
       id: 2,
-      image: stacy,
+      image: pfrank,
       title: "",
-      artist: "Stacy",
-      datetime: "May 2nd, 2026 5:30PM-8:30PM",
+      artist: "Papa Frankie",
+      datetime: "June 12th, 2026 5:30PM-8:30PM",
     },
     {
       id: 3,
-      image: tnd,
+      image: kensifford,
       title: "",
-      artist: "Dave and Teresa",
-      datetime: "May 8th, 2026 5:30PM-8:30PM",
+      artist: "Ken Sifford",
+      datetime: "June 13th, 2026 5:30PM-8:30PM",
     },
     {
       id: 4,
-      image: miketibbs,
+      image: tnd,
       title: "",
-      artist: "Mike Tibbs",
-      datetime: "May 15th, 2026 5:30PM-8:30PM",
+      artist: "Dave and Teresa",
+      datetime: "June 19th, 2026 5:30PM-8:30PM",
     },
     {
       id: 5,
-      image: joedo,
+      image: stacy,
       title: "",
-      artist: "Joe Donelan",
-      datetime: "May 22nd, 2026 5:30PM-8:30PM",
+      artist: "Stacy",
+      datetime: "June 26th, 2026 5:30PM-8:30PM",
     },
     {
       id: 6,
-      image: backintime,
+      image: joedo,
       title: "",
-      artist: "Back in Time",
-      datetime: "May 29th, 2026 5:30PM-8:30PM",
-    },
-    {
-      id: 7,
-      image: justhavingfun,
-      title: "",
-      artist: "Just Having Fun",
-      datetime: "May 30th, 2026 5:30PM-8:30PM",
+      artist: "Joe Donelan",
+      datetime: "June 27th, 2026 5:30PM-8:30PM",
     },
   ]);
 
